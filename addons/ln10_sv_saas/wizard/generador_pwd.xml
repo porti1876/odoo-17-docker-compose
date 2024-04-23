@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="master_password_form" model="ir.ui.view">
+        <field name="name">master_password.form</field>
+        <field name="model">super.password</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                    <button name="generar_guardar_contrasena" 
+                    type="object" 
+                    string="Generate Master Password" 
+                    class="btn-primary"
+                    icon="fa-solid fa-lock" />
+                </header>
+                <sheet>
+                    <group>
+                        <field name="contrasena_generada"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+</odoo>

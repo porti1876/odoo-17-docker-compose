@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_giro_tree" model="ir.ui.view">
+        <field name="name">res.giro.tree</field>
+        <field name="model">res.giro</field>
+        <field name="arch" type="xml">
+            <tree string="Actividad económica">
+                <field name="name"/>
+                <field name="code"/>
+            </tree>
+        </field>
+    </record>
+    <record id="action_giro_contacts" model="ir.actions.act_window">
+        <field name="name">Actividad económica</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.giro</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_giro_partner"
+              name="Actividades económicas"
+              parent="contacts.res_partner_menu_config"
+              action="action_giro_contacts"
+    />
+</odoo>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_country_edi_tree" model="ir.ui.view">
+        <field name="name">res.country.edi.tree</field>
+        <field name="model">res.country.edi</field>
+        <field name="arch" type="xml">
+            <tree string="Paises para facturación electrónica">
+                <field name="name"/>
+                <field name="code"/>
+            </tree>
+        </field>
+    </record>
+    <record id="action_country_edi_contacts" model="ir.actions.act_window">
+        <field name="name">Países para DTE SV</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.country.edi</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem id="menu_country_edi_partner"
+              name="Países para facturación electrónica"
+              parent="contacts.res_partner_menu_config"
+              action="action_country_edi_contacts"
+    />
+</odoo>

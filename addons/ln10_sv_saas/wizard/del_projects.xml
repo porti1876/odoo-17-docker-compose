@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+     <record id="dele_ir_proje" model="ir.ui.view">
+        <field name="name">Delete Projetcs</field>
+        <field name="model">delele.projects</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>                          
+                            <field name="project"/>
+                        </group>
+                    </sheet>
+                <footer>
+                 <button name="eliminar_proyecto_digital" type="object" string="Eliminar" class="oe_highlight"/>
+                    <button special="cancel" string="Cancelar"/>
+                </footer>
+                </form>
+            </field>
+        </record>
+</odoo>

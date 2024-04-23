@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="cp_instancias" model="ir.ui.view">
+        <field name="name">Copy Instancias</field>
+        <field name="model">craete.instancia</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="pkey_private" attrs="{'invisible':[('pkey_private','!=',False)]}" />
+                            <field name="password_pkey" password="True"/>
+                        </group>
+                        <group>
+                            <field name="name"/>
+                            <field name="servidor"/>
+                            <field name="sshkeys"/>
+                            <field name="ruta_cp"/>
+                            <field name="ruta_fl"/>
+                        </group>
+                    </sheet>
+                <footer>
+            <button name="cp_file" 
+                type="object" 
+                string="Crear instancia" 
+                class="oe_highlight"
+                icon="fa-solid fa-copy" 
+            />
+                    <button special="cancel" string="Cancelar"/>
+                </footer>
+                </form>
+            </field>
+        </record> 
+</odoo>

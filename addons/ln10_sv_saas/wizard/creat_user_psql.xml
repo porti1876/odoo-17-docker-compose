@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="cr_user_postgres" model="ir.ui.view">
+        <field name="name">Crear Users Postgres</field>
+        <field name="model">creates.psql</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <group string="1">
+                                
+                                    <field name="datos_user" 
+                                    invisible="1"
+                                     />
+                                    <field name="name"/>
+                                    <field name="password" password="True"/>
+                                    <field name="servidor"/>
+                                    <field name="ip_server"/>
+                               
+                            </group>
+                            <group string="2">
+                                    <field name="datos_psl" invisible="1" />
+                                    <field name="user_postgres"/>
+                                    <field name="pass_user" required="1" password="True"/>
+                                    <field name="port"/>
+                                   
+                               
+                            </group>                               
+                        </group>
+                    </sheet>
+            <footer>
+            
+                <button name="create_postgres_user" 
+                type="object" 
+                string="Create Users Postgres" 
+                class="oe_highlight"
+                icon="fa-solid fa-database" />
+                
+                <button special="cancel" string="Cancelar"/>
+               
+            </footer>
+                </form>
+            </field>
+        </record> 
+</odoo>

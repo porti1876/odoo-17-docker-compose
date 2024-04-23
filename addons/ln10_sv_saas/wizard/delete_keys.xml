@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+     <record id="dele_ir_keys" model="ir.ui.view">
+        <field name="name">Delete public keys</field>
+        <field name="model">dele.keys</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                           
+                            <field name="public_keys"/>
+                        </group>
+                    </sheet>
+                <footer>
+                 <button name="delete_keys" type="object" string="Eliminar" class="oe_highlight"/>
+                    <button special="cancel" string="Cancelar"/>
+                </footer>
+                </form>
+            </field>
+        </record>
+
+
+</odoo>

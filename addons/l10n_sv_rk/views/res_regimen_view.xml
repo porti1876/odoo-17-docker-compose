@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="regimen_catalogovzdferfwefwefWEFSEF_tree" model="ir.ui.view">
+        <field name="name">res.regimen.view.tree</field>
+        <field name="model">res.regimen</field>
+        <field name="arch" type="xml">
+            <tree string="Régimen">
+                <field name="codigo" />
+                <field name="valores" />
+            </tree>
+        </field>
+    </record>
+    <record id="res_regimen_action" model="ir.actions.act_window">
+        <field name="name">Regimen</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.regimen</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+        id="res_regimen_menu"
+        name="Régimen"
+        parent="contacts.res_partner_menu_config"
+        action="res_regimen_action"
+        />
+
+</odoo>

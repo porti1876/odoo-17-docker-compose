@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_tribute_edi_tree" model="ir.ui.view">
+        <field name="name">tribute.edi.tree</field>
+        <field name="model">tribute.edi</field>
+        <field name="arch" type="xml">
+            <tree string="Contiene los códigos asignados por la Administración Tributaria para los diferentes tributos requeridos de acuerdo al modelo de negocio. ">
+                <field name="valores"/>
+                <field name="codigo"/>
+            </tree>
+        </field>
+    </record>
+    <record id="action_tributes_edi" model="ir.actions.act_window">
+        <field name="name">Tributos Electronica El Salvador</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">tribute.edi</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_tribute_edi"
+              name="Tributos Electronica El Salvador"
+              parent="account.menu_finance_configuration"
+              action="action_tributes_edi"
+              sequence="200"
+    />
+</odoo>

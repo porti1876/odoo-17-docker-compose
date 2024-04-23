@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="reason_cancelation_sat_form">
+        <field name="name">reason.cancelation.form</field>
+        <field name="model">reason.cancelation</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Motivo de cancelación">
+                <sheet>
+                    <group>
+                        <field name="move_id"/>
+                        <field name="user_id" readonly="1"/>
+                        <field name="company_id"/>
+                        <field name="uuid_code_anul"/>
+                        <field name="tipo_cancelacion" required='1'/>
+                        <field name="motivo_anulacion"/>
+                        <field name="fecha_cancelacion"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="firmar_anular_dte" string="Anular DTE" type="object" class="oe_highlight"/>
+                    <button special="cancel" string="Cancelar"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="reason_cancelation_sat_wizard">
+        <field name="name">Motivo de cancelacion DTE</field>
+        <field name="res_model">reason.cancelation</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="reason_cancelation_sat_form"/>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

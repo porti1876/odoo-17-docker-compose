@@ -1,0 +1,57 @@
+id,descripcion,clave
+unidad_medida001,Metro,01
+unidad_medida002,Yarda,02
+unidad_medida003,Vara,03
+unidad_medida004,Pie,04
+unidad_medida005,Pulgada,05
+unidad_medida006,Milímetro,06
+unidad_medida007,Milla cuadrada,08
+unidad_medida008,Kilómetro cuadrado,09
+unidad_medida009,Hectárea,10
+unidad_medida010,Manzana,11
+unidad_medida011,Acre,12
+unidad_medida012,Metro cuadrado,13
+unidad_medida013,Yarda cuadrada,14
+unidad_medida014,Vara cuadrada,15
+unidad_medida015,Pie cuadrado,16
+unidad_medida016,Pulgada cuadrada,17
+unidad_medida017,Metro cúbico,18
+unidad_medida018,Yarda cúbica,19
+unidad_medida019,Barril,20
+unidad_medida020,Pie cúbico,21
+unidad_medida021,Galón,22
+unidad_medida022,Litro,23
+unidad_medida023,Botella,24
+unidad_medida024,Pulgada cúbica,25
+unidad_medida025,Mililitro,26
+unidad_medida026,Onza fluida,27
+unidad_medida027,Tonelada métrica,29
+unidad_medida028,Tonelada,30
+unidad_medida029,Quintal métrico,31
+unidad_medida030,Quintal Arroba,32
+unidad_medida031,Arroba,33
+unidad_medida032,Kilogramo,34
+unidad_medida033,Libra troy,35
+unidad_medida034,Libra,36
+unidad_medida035,Onza troy,37
+unidad_medida036,Onza,38
+unidad_medida037,Gramo,39
+unidad_medida038,Miligramo,40
+unidad_medida039,Megawatt,42
+unidad_medida040,Kilowatt,43
+unidad_medida041,Watt,44
+unidad_medida042,Megavoltio-amperio,45
+unidad_medida043,Kilovoltio-amperio,46
+unidad_medida044,Voltio-amperio,47
+unidad_medida045,Gigawatt-hora,49
+unidad_medida046,Megawatt-hora,50
+unidad_medida047,Kilowatt-hora,51
+unidad_medida048,Watt-hora,52
+unidad_medida049,Kilovoltio,53
+unidad_medida050,Voltio,54
+unidad_medida051,Millar,55
+unidad_medida052,Medio millar,56
+unidad_medida053,Ciento,57
+unidad_medida054,Docena,58
+unidad_medida055,Unidad,59
+unidad_medida056,Otra,99

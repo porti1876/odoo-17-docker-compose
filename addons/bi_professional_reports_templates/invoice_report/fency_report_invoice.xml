@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="fency_report_invoice_document">
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id"></t>
+            </t>
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"></t>
+            </t>
+            <t t-set="primary_color" t-value="o.company_id.primary_color"/>
+            <div class="header">
+                <div class="row mt32 mb32">
+                    <div class="col-4">
+                        <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="height: 120px;"/>
+                    </div>
+                    <div class="col-4 text-center"
+                         style="font:12px lucida-console,sans-serif ;">
+                        <h6>Documento Tributario Electrónico</h6>
+                        <span t-field="o.journal_id.name"/>
+                        <br/>
+                        <strong>Versión:</strong>
+                        <span t-field="o.journal_id.version"/>
+                        <br/>
+                        <span t-field="company.partner_id"/>
+                        <br/>
+                        <span t-if="o.company_id.modo_prueba == '00'">
+                            <span style="font:25px lucida-console,sans-serif ; color:red;">FACTURA EN MODO
+                                PRUEBA
+                            </span>
+                        </span>
+
+                    </div>
+                    <div class="col-4 text-center">
+                        <img t-if="o.qr_link" t-att-src="'data:image/png;base64,'+o.qr_link"
+                             style="height: 150px; margin-left: 35mm"/>
+                    </div>
+                </div>
+
+            </div>
+
+            <t t-call="web.external_layout">
+                <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})"/>
+                <div class="page">
+
+                    <div t-att-style="'background-color: %s;' % o.company_id.primary_color">
+
+                        <div class="row mt32 mb32">
+                            <div class="col-4" t-if="o.invoice_date">
+                                <font color="#fff">
+                                    <strong t-att-style="'color: %s;' % o.company_id.secondary_color">Código de
+                                        Generación:
+                                    </strong>
+                                    <p style="font:12px lucida-console,sans-serif ;"
+                                       t-field="o.uuid_generation_code"/>
+                                </font>
+                            </div>
+                            <div class="col-4">
+                                <font color="#fff">
+                                    <strong t-att-style="'color: %s;' % o.company_id.secondary_color">Número de
+                                        control:
+                                    </strong>
+                                    <p style="font:12px lucida-console,sans-serif ;" t-field="o.name"/>
+                                </font>
+                            </div>
+                            <div class="col-4">
+                                <font color="#fff">
+                                    <strong t-att-style="'color: %s;' % o.company_id.secondary_color">Sello de
+                                        recepción:
+                                    </strong>
+                                    <p style="font:12px lucida-console,sans-serif ;"
+                                       t-field="o.confirmacion"/>
+                                </font>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div t-att-style="'background-color: %s;' % o.company_id.primary_color">
+
+                        <div class="row mt32 mb32">
+                            <div class="col-4">
+                                <font color="#fff">
+                                    <strong t-att-style="'color: %s;' % o.company_id.secondary_color">Modelo de
+                                        facturación:
+                                    </strong>
+                                    <br/>
+                                    <t t-esc="o.get_modelo_facturacion_display()"/>
+                                </font>
+                            </div>
+
+                            <div class="col-4">
+                                <font color="#fff">
+                                    <strong t-att-style="'color: %s;' % o.company_id.secondary_color">Tipo de
+                                        transmisión:
+                                    </strong>
+                                    <br/>
+                                    <t t-esc="o.get_tipo_transmision_display()"/>
+                                </font>
+                            </div>
+                            <div class="col-4">
+                                <font color="#fff">
+                                    <strong t-att-style="'color: %s;' % o.company_id.secondary_color">Fecha y Hora de
+                                        Generación:
+                                    </strong>
+                                    <t t-if="o.original_invoice_id">
+                                        <p style="font:12px lucida-console,sans-serif ;"
+                                           t-field="o.fecha_factura"/>
+                                    </t>
+                                    <t t-if="not o.original_invoice_id">
+                                        <p style="font:12px lucida-console,sans-serif ;"
+                                           t-field="o.fecha_factura"/>
+                                    </t>
+                                </font>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="padding-top:20px">
+                        <div class="row">
+                            <div class="col col-6"
+                                 style="font:15px lucida-console,sans-serif ;border:1px solid black; border-radius: 10px">
+                                <h5 class="text-center">Emisor</h5>
+                                <br/>
+                                <strong>Nombre o razón social:</strong>
+                                <span style="color:gray;" t-field="o.company_id.name"/>
+                                <br/>
+                                <strong>NIT:</strong>
+                                <span style="color:gray ;" t-field="o.company_id.document_nit_company"/>
+                                <br/>
+                                <strong>NRC:</strong>
+
+                                <span style="color:gray ;" t-field="o.company_id.vat"/>
+                                <br/>
+                                <strong>Actividad Económica:</strong>
+                                <span style="color:gray ;" t-field="o.company_id.document_giro_company.name"/>
+                                <br/>
+                                <strong>Dirección:</strong>
+                                <span style="color:gray ;" t-field="o.company_id.street"/>
+                                <span style="color:gray ;" t-field="o.company_id.munic_id"/>
+                                <span style="color:gray ;" t-field="o.company_id.state_id"/>
+                                <br/>
+                                <strong>Número de teléfono:</strong>
+                                <span style="color:gray ;" t-field="o.company_id.phone"/>
+                                <br/>
+                                <strong>Correo Electrónico:</strong>
+                                <span style="color:gray ;" t-field="o.company_id.email"/>
+                                <br/>
+                                <strong>Tipo de Establecimiento:</strong>
+                                <span style="color:gray ;" t-field="o.tipo_establecimiento"/>
+                                <br/>
+                                <t t-if="o.number_journal == '11'">
+                                    <strong>Recinto Fiscal:</strong>
+                                    <span style="color:gray ;" t-field="o.company_id.recinto_fiscal_id"/>
+                                </t>
+                                <br/>
+                                <t t-if="o.number_journal == '11'">
+                                    <strong>Régimen de exportación:</strong>
+                                    <span style="color:gray ;" t-field="o.company_id.regimen_fiscal_id"/>
+                                </t>
+                                <br/>
+                            </div>
+                            <div class="col col-6"
+                                 style="font:15px lucida-console,sans-serif ;border:1px solid black; border-radius: 10px">
+                                <h5 class="text-center">Receptor</h5>
+                                <br/>
+                                <t t-if="o.partner_id.name">
+                                    <strong>Nombre o razón social:</strong>
+                                    <span style="color:gray ;" t-field="o.partner_id.name"/>
+                                </t>
+                                <br/>
+
+                                <t t-if="o.partner_id.document_nit">
+                                    <strong>NIT:</strong>
+                                    <span style="color:gray ;" t-field="o.partner_id.document_nit"/>
+                                </t>
+                                <br/>
+                                <t t-if="o.partner_id.document_dui">
+                                    <strong>DUI:</strong>
+                                    <span style="color:gray ;" t-field="o.partner_id.document_dui"/>
+                                </t>
+
+                                <br/>
+                                <t t-if="o.partner_id.vat">
+
+                                    <strong>NRC:</strong>
+                                    <span style="color:gray ;" t-field="o.partner_id.vat"/>
+                                </t>
+                                <br/>
+                                <t t-if="o.tipo_identificacion_receptor_otro">
+
+                                    <strong>Otro documento:</strong>
+                                    <span style="color:gray ;" t-field="o.tipo_identificacion_receptor_otro"/>
+                                </t>
+                                <br/>
+                                <t t-if="o.partner_id.document_giro_res.name">
+
+                                    <strong>Actividad Económica:</strong>
+                                    <span style="color:gray ;" t-field="o.partner_id.document_giro_res.name"/>
+                                </t>
+                                <br/>
+                                <t t-if="o.number_journal == '11'">
+
+                                    <strong>País destino:</strong>
+                                    <span style="color:gray ;" t-field="o.partner_id.codigo_pais"/>
+                                </t>
+                                <br/>
+                                <t t-if="o.partner_id.street or o.partner_id.munic_id or o.partner_id.state_id">
+
+                                    <strong>Dirección:</strong>
+                                    <span style="color:gray ;" t-field="o.partner_id.street"/>
+                                    <span style="color:gray ;" t-field="o.partner_id.munic_id"/>
+                                    <span style="color:gray ;" t-field="o.partner_id.state_id"/>
+                                </t>
+                                <br/>
+                                <t t-if="o.partner_id.phone">
+
+                                    <strong>Número de teléfono:</strong>
+                                    <span style="color:gray ;" t-field="o.partner_id.phone"/>
+                                </t>
+                                <br/>
+
+                                <t t-if="o.partner_id.email">
+                                    <strong>Correo Electrónico:</strong>
+                                    <span style="color:gray ;" t-field="o.partner_id.email"/>
+                                </t>
+                                <br/>
+                                <t t-if="o.titulo_a_que_se_remiten_bienes">
+                                    <strong>Bienes remitidos a título de:</strong>
+                                    <span style="color:gray ;" t-field="o.titulo_a_que_se_remiten_bienes"/>
+                                </t>
+                                <br/>
+                            </div>
+                        </div>
+
+                        <div style="padding-top:20px;"></div>
+
+
+                        <!--Otros documentos asociados-->
+
+                        <t t-if="o.otros_documentos_asociados">
+                            <div class="document-related">
+                                <center>
+                                    <h5>Otros documentos asociados</h5>
+                                </center>
+                                <table class="table table-sm" style="border:1px solid black; border-radius: 10px;">
+                                    <thead>
+                                        <tr>
+                                             <th t-att-style="'background-color: %s; color: %s;' % (o.company_id.primary_color, o.company_id.secondary_color)">
+                                                Otro documento asociado
+                                            </th>
+                                            <th t-att-style="'background-color: %s; color: %s;' % (o.company_id.primary_color, o.company_id.secondary_color)">
+                                                Identificación del documento asociado
+                                            </th>
+                                            <th t-att-style="'background-color: %s; color: %s;' % (o.company_id.primary_color, o.company_id.secondary_color)">
+                                                Descripción del documento asociado
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">
+                                                <span t-field="o.otros_documentos_asociados"
+                                                      style="text-align:center"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="o.cod_asociado"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="o.detalle_documento"/>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div style="padding-top:20px;"></div>
+                            </div>
+                        </t>
+
+
+                        <!-- Venta a cuenta de terceros-->
+                        <t t-if="o.venta_cuenta_terceros">
+                            <div class="document-related">
+                                <center>
+                                    <h5>Venta a cuenta de terceros</h5>
+                                </center>
+                                <table class="table table-sm" style="border:1px solid black; border-radius: 10px;">
+                                    <thead>
+                                        <tr>
+                                            <th t-att-style="'background-color: %s; color: %s;' % (o.company_id.primary_color, o.company_id.secondary_color)">
+                                                Nombre o razón social
+                                            </th>
+                                            <th t-att-style="'background-color: %s; color: %s;' % (o.company_id.primary_color, o.company_id.secondary_color)">
+                                                NIT
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">
+                                                <span t-field="o.venta_cuenta_terceros.name"
+                                                      style="text-align:center"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="o.venta_cuenta_terceros.document_nit"/>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div style="padding-top:20px;"></div>
+                            </div>
+                        </t>
+
+
+                        <!-- Documentos Relacionados-->
+                        <t t-if="o.original_invoice_id">
+                            <div class="document-related">
+                                <center>
+                                    <h5>Documentos Relacionados</h5>
+                                </center>
+                                <table class="table table-sm" style="border:1px solid black; border-radius: 10px;">
+                                    <thead>
+                                        <tr>
+                                            <th t-att-style="'background-color: %s; color: %s;' % (o.company_id.primary_color, o.company_id.secondary_color)">
+                                                Tipo de Documento
+                                            </th>
+                                            <th t-att-style="'background-color: %s; color: %s;' % (o.company_id.primary_color, o.company_id.secondary_color)">
+                                                Número de Documento
+                                            </th>
+                                            <th t-att-style="'background-color: %s; color: %s;' % (o.company_id.primary_color, o.company_id.secondary_color)">
+                                                Fecha de Documento
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">
+                                                <span t-field="o.original_invoice_id.journal_id"
+                                                      style="text-align:center"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="o.original_invoice_id.uuid_generation_code"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-esc="o.original_invoice_id.fecha_factura.strftime('%Y-%m-%d')"/>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div style="padding-top:20px;"></div>
+                            </div>
+                        </t>
+
+
+                        <!-- Is there a discount on at least one line? -->
+                        <t t-set="display_discount" t-value="any([l.discount for l in o.invoice_line_ids])"/>
+
+                        <table class="table table-sm" style="font:12px lucida-console,sans-serif ;">
+                            <thead>
+                                <tr>
+                                    <th class="text-right"
+                                        t-att-style="'background-color: %s; color: %s;' % (o.company_id.primary_color, o.company_id.secondary_color)">
+                                        N°
+                                    </th>
+                                    <th class="text-right"
+                                        t-att-style="'background-color: %s; color: %s;' % (o.company_id.primary_color, o.company_id.secondary_color)">
+                                        Código
+                                    </th>
+                                    <th class="text-right"
+                                        t-att-style="'background-color: %s; color: %s;' % (o.company_id.primary_color, o.company_id.secondary_color)">
+                                        Cantidad
+                                    </th>
+                                    <th class="text-right"
+                                        t-att-style="'background-color: %s; color: %s;' % (o.company_id.primary_color, o.company_id.secondary_color)">
+                                        Unidad
+                                    </th>
+
+                                    <th t-att-style="'background-color: %s; color: %s;' % (o.company_id.primary_color, o.company_id.secondary_color)">
+                                        Descripción
+                                    </th>
+                                    <th class="text-right"
+                                        t-att-style="'background-color: %s; color: %s;' % (o.company_id.primary_color, o.company_id.secondary_color)">
+                                        Precio Unitario
+                                    </th>
+                                    <th class="text-right"
+                                        t-att-style="'background-color: %s; color: %s;' % (o.company_id.primary_color, o.company_id.secondary_color)">
+                                        Descuento por
+                                        item
+                                    </th>
+                                    <th class="text-right"
+                                        t-att-style="'background-color: %s; color: %s;' % (o.company_id.primary_color, o.company_id.secondary_color)">
+                                        Otros montos
+                                        no afectos
+                                    </th>
+                                    <th class="text-right"
+                                        t-att-style="'background-color: %s; color: %s;' % (o.company_id.primary_color, o.company_id.secondary_color)">
+                                        Ventas No
+                                        Sujetas
+                                    </th>
+                                    <th class="text-right"
+                                        t-att-style="'background-color: %s; color: %s;' % (o.company_id.primary_color, o.company_id.secondary_color)">
+                                        Ventas
+                                        Exentas
+                                    </th>
+                                    <th class="text-right"
+                                        t-att-style="'background-color: %s; color: %s;' % (o.company_id.primary_color, o.company_id.secondary_color)">
+                                        Ventas
+                                        Gravadas
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="invoice_tbody">
+                                <t t-set="line_number" t-value="1"/>
+                                <t t-set="otros_montos_no_afectos" t-value="0.0"/>
+                                <t t-set="ventas_no_sujetas" t-value="0.0"/>
+                                <t t-set="ventas_exentas" t-value="0.0"/>
+                                <tr t-foreach="o.invoice_line_ids" t-as="l">
+                                    <td>
+                                        <span t-esc="line_number"/>
+                                        <t t-set="line_number" t-value="line_number + 1"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="l.product_id.default_code"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-esc="round(l.quantity, 2)"/>
+
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="l.product_id.cat_unidad_medida"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="l.product_id.name"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-esc="round(l.price_unit*1.13 if o.number_journal=='01' else l.price_unit, 2)"
+                                              t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                    </td>
+
+
+                                    <td class="text-right">
+                                        <span t-esc="round((l.discount/100) * (l.price_unit * l.quantity), 2)"
+                                              t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-esc="otros_montos_no_afectos"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <!--                                        <span t-esc="ventas_no_sujetas"/>-->
+                                        <span t-esc="round(l.price_subtotal, 2) if l.move_type_ids == 'nosujetas' else ventas_no_sujetas"/>
+                                    </td>
+
+                                    <td class="text-right">
+                                        <!--                                        <span t-esc="ventas_exentas"/>-->
+                                        <span t-esc="round(l.price_subtotal, 2) if l.move_type_ids == 'exentas'
+                                         else ventas_exentas"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-esc="round(l.price_subtotal*1.13 if o.number_journal=='01' and l.move_type_ids == 'gravadas'
+                                                     else l.price_subtotal, 2)"
+                                              t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="d-flex justify-content-end" style="font:12px lucida-console,sans-serif ;">
+                        <div class="col-5" style="border:1px solid black">
+                            <p t-if="o.number_journal == '11'">
+                                <strong>Valor en letra:</strong>
+                                <span t-field="o.amount_to_text_exp"/>
+                            </p>
+                            <p t-if="not o.number_journal == '11'">
+                                <strong>Valor en letra:</strong>
+                                <span t-field="o.amount_to_text"/>
+                            </p>
+                            <p>
+                                <strong>Observaciones:</strong>
+                                <span t-field="o.narration"/>
+                            </p>
+                            <p>
+                                <strong>Condición de la operación:</strong>
+                                <span t-field="o.invoice_payment_term_id.condicion_operacion"/>
+                            </p>
+                            <t t-if="o.catalogo_inco">
+                                <strong>Incoterms:</strong>
+                                <span style="color:gray ;" t-field="o.catalogo_inco.codeIncoterms"/>
+                                <span style="color:gray ;" t-field="o.catalogo_inco.description"/>
+                            </t>
+
+
+                            <div class="extensión"
+                                 t-att-style="'background-color: %s; color: %s;' % (o.company_id.primary_color, o.company_id.secondary_color)">
+                                <h5 style="text-align: center;">Extensión</h5>
+                            </div>
+
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th t-att-style="'background-color: %s; color: %s;' % (o.company_id.primary_color, o.company_id.secondary_color) ">
+                                            Nombre
+                                            entrega:
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th
+                                                t-att-style="'background-color: %s; color: %s;' % (o.company_id.primary_color, o.company_id.secondary_color) ">
+                                            N°
+                                            Documento:
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th
+                                                t-att-style="'background-color: %s; color: %s;' % (o.company_id.primary_color, o.company_id.secondary_color) ">
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th
+                                                t-att-style="'background-color: %s; color: %s;' % (o.company_id.primary_color, o.company_id.secondary_color) ">
+                                        </th>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th
+                                                t-att-style="'background-color: %s; color: %s;' % (o.company_id.primary_color, o.company_id.secondary_color) ">
+                                            Nombre
+                                            recibe:
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th
+                                                t-att-style="'background-color: %s; color: %s;' % (o.company_id.primary_color, o.company_id.secondary_color) ">
+                                            N°
+                                            Documento:
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th
+                                                t-att-style="'background-color: %s; color: %s;' % (o.company_id.primary_color, o.company_id.secondary_color) ">
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th
+                                                t-att-style="'background-color: %s; color: %s;' % (o.company_id.primary_color, o.company_id.secondary_color) ">
+                                        </th>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <div class="col-7 text-right ml-auto" style="border:1px solid black">
+                            <table class="table table-condensed">
+                                <tr class="border-black">
+                                    <td>
+                                        <strong>Suma de ventas:</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-esc="round(o.amount_total if o.number_journal=='01' else o.amount_untaxed, 2)"
+                                              t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                    </td>
+                                </tr>
+
+                                <tr class="border-black">
+                                    <td>
+                                        <strong>Suma total de operaciones:</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-esc="round(o.amount_total if o.number_journal=='01' else o.amount_untaxed, 2)"
+                                              t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                    </td>
+                                </tr>
+                                <tr class="border-black">
+                                    <td>
+                                        <strong>Monto global Desc., Rebajas y otros a ventas no sujetas:</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="o.discount"
+                                              t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+                                    </td>
+                                </tr>
+                                <tr class="border-black">
+                                    <td>
+                                        <strong>Monto global Desc., Rebajas y otros a ventas Exentas:</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="o.discount"
+                                              t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+                                    </td>
+                                </tr>
+                                <tr class="border-black">
+                                    <td>
+                                        <strong>Monto global Desc., Rebajas y otros a ventas gravadas:</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="o.discount"
+                                              t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+                                    </td>
+                                </tr>
+                                <t t-if="o.number_journal == '03' or o.number_journal == '04' or o.number_journal == '05' or o.number_journal == '06'">
+                                    <tr class="border-black">
+                                        <td>
+                                            <strong>IVA 13%:</strong>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="o.amount_tax - o.retencion_fc - o.percepcion_fc"
+                                                  t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                        </td>
+                                    </tr>
+                                </t>
+
+
+                                <tr class="border-black">
+                                    <td>
+                                        <strong>Sub-total:</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-esc="round(o.amount_total if o.number_journal=='01' else o.amount_untaxed, 2)"
+                                              t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                    </td>
+                                </tr>
+                                <t t-if="o.number_journal == '03' or o.number_journal == '05'">
+                                    <tr class="border-black">
+                                        <td>
+                                            <strong>IVA Percibido:</strong>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="o.percepcion_fc"
+                                                  t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                        </td>
+                                    </tr>
+                                </t>
+                                <t t-if="o.number_journal == '01' or o.number_journal == '03' or o.number_journal =='05'">
+                                    <tr class="border-black">
+                                        <td>
+                                            <strong>IVA Retenido:</strong>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="o.retencion_fc"
+                                                  t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                        </td>
+                                    </tr>
+                                </t>
+                                <t t-if="o.number_journal == '01' or o.number_journal == '03'">
+
+                                    <tr class="border-black">
+                                        <td>
+                                            <strong>Retención Renta:</strong>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="o.discount"
+                                                  t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+                                        </td>
+                                    </tr>
+                                </t>
+                                <t t-if="o.number_journal == '11'">
+                                    <tr class="border-black">
+                                        <td>
+                                            <strong>Seguro:</strong>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="o.seguro"
+                                                  t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+                                        </td>
+                                    </tr>
+                                </t>
+                                <t t-if="o.number_journal == '11'">
+                                    <tr class="border-black">
+                                        <td>
+                                            <strong>Flete:</strong>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="o.flete"
+                                                  t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+                                        </td>
+                                    </tr>
+                                </t>
+                                <tr class="border-black">
+                                    <td>
+                                        <strong>Monto Total de la Operación</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <t t-if="o.number_journal == '11'">
+                                            <span t-field="o.total_exportacion"
+                                                  t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+                                        </t>
+                                        <t t-if="not o.number_journal == '11'">
+                                            <span t-field="o.amount_total"
+                                                  t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+                                        </t>
+                                    </td>
+                                </tr>
+                                <t t-if="o.number_journal == '01' or o.number_journal == '03'">
+
+                                    <tr class="border-black">
+                                        <td>
+                                            <strong>Total Otros montos no afectos:</strong>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="o.discount"
+                                                  t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+                                        </td>
+                                    </tr>
+                                </t>
+                                <t t-if="o.number_journal == '01' or o.number_journal == '03'">
+
+                                    <tr class="border-black">
+                                        <td>
+                                            <strong>Total a Pagar:</strong>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="o.amount_total"
+                                                  t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+
+        <template id="account.report_invoice_with_payments">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-set="lang"
+                       t-value="o.invoice_user_id.sudo().lang if o.move_type in ('in_invoice', 'in_refund') else o.partner_id.lang"/>
+                    <t t-set="print_with_payments" t-value="True"/>
+                    <t t-if="o.company_id.account_template == 'fency' ">
+                        <t t-call="bi_professional_reports_templates.fency_report_invoice_document" t-lang="lang"/>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

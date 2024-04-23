@@ -1,0 +1,263 @@
+"id","code","name","dpto_id/id","name_code","dpto_code"
+"dpto_01","01","Ahuachapan","l10n_sv_rk.01",AHUACHAPÁN,01
+"dpto_02","02","Apaneca","l10n_sv_rk.01",APANECA,01
+"dpto_03","03","Atiquizaya","l10n_sv_rk.01",ATIQUIZAYA,01
+"dpto_04","04","Concepcion De Ataco","l10n_sv_rk.01",CONCEPCIÓN DE ATACO,01
+"dpto_05","05","El Refugio","l10n_sv_rk.01",EL REFUGIO,01
+"dpto_06","06","Guaymango","l10n_sv_rk.01",GUAYMANGO,01
+"dpto_07","07","Jujutla","l10n_sv_rk.01",JUJUTLA,01
+"dpto_08","08","San Francisco Menendez","l10n_sv_rk.01",SAN FRANCISCO MENÉNDEZ,01
+"dpto_09","09","San Lorenzo","l10n_sv_rk.01",SAN LORENZO,01
+"dpto_10","10","San Pedro Puxtla","l10n_sv_rk.01",SAN PEDRO PUXTLA,01
+"dpto_11","11","Tacuba","l10n_sv_rk.01",TACUBA,01
+"dpto_12","12","Turin","l10n_sv_rk.01",TURÍN,01
+"dpto_13","01","Candelaria De La Frontera","l10n_sv_rk.02",CANDELARIA DE LA FRONTERA,02
+"dpto_14","02","Coatepeque","l10n_sv_rk.02",COATEPEQUE,02
+"dpto_15","03","Chalchuapa","l10n_sv_rk.02",CHALCHUAPA,02
+"dpto_16","04","El Congo","l10n_sv_rk.02",EL CONGO,02
+"dpto_17","05","El Porvenir","l10n_sv_rk.02",EL PORVENIR,02
+"dpto_18","06","Masahuat","l10n_sv_rk.02",MASAHUAT,02
+"dpto_19","07","Metapan","l10n_sv_rk.02",METAPÁN,02
+"dpto_20","08","San Antonio Pajonal","l10n_sv_rk.02",SAN ANTONIO PAJONAL,02
+"dpto_21","09","San Sebastian Salitrillo","l10n_sv_rk.02",SAN SEBASTIÁN SALITRILLO,02
+"dpto_22","10","Santa Ana","l10n_sv_rk.02",SANTA ANA,02
+"dpto_23","11","Sta Rosa Guachi","l10n_sv_rk.02",STA ROSA GUACHI,02
+"dpto_24","12","Stgo D La Front","l10n_sv_rk.02",STGO D LA FRONT,02
+"dpto_25","13","Texistepeque","l10n_sv_rk.02",TEXISTEPEQUE,02
+"dpto_26","01","Acajutla","l10n_sv_rk.03",ACAJUTLA,03
+"dpto_27","02","Armenia","l10n_sv_rk.03",ARMENIA,03
+"dpto_28","03","Caluco","l10n_sv_rk.03",CALUCO,03
+"dpto_29","04","Cuisnahuat","l10n_sv_rk.03",CUISNAHUAT,03
+"dpto_30","05","Sta I Ishuatan","l10n_sv_rk.03",STA I ISHUATAN,03
+"dpto_31","06","Izalco","l10n_sv_rk.03",IZALCO,03
+"dpto_32","07","Juayua","l10n_sv_rk.03",JUAYÚA,03
+"dpto_33","08","Nahuizalco","l10n_sv_rk.03",NAHUIZALCO,03
+"dpto_34","09","Nahulingo","l10n_sv_rk.03",NAHULINGO,03
+"dpto_35","10","Salcoatitan","l10n_sv_rk.03",SALCOATITÁN,03
+"dpto_36","11","San Antonio Del Monte","l10n_sv_rk.03",SAN ANTONIO DEL MONTE,03
+"dpto_37","12","San Julian","l10n_sv_rk.03",SAN JULIÁN,03
+"dpto_38","13","Sta C Masahuat","l10n_sv_rk.03",STA C MASAHUAT,03
+"dpto_39","14","Santo Domingo Guzman","l10n_sv_rk.03",SANTO DOMINGO GUZMÁN,03
+"dpto_40","15","Sonsonate","l10n_sv_rk.03",SONSONATE,03
+"dpto_41","16","Sonzacate","l10n_sv_rk.03",SONZACATE,03
+"dpto_42","01","Agua Caliente","l10n_sv_rk.04",AGUA CALIENTE,04
+"dpto_43","02","Arcatao","l10n_sv_rk.04",ARCATAO,04
+"dpto_44","03","Azacualpa","l10n_sv_rk.04",AZACUALPA,04
+"dpto_45","04","Citala","l10n_sv_rk.04",CITALÁ,04
+"dpto_46","05","Comalapa","l10n_sv_rk.04",COMALAPA,04
+"dpto_47","06","Concepcion Quezaltepeque","l10n_sv_rk.04",CONCEPCIÓN QUEZALTEPEQUE,04
+"dpto_48","07","Chalatenango","l10n_sv_rk.04",CHALATENANGO,04
+"dpto_49","08","Dulce Nom Maria","l10n_sv_rk.04",DULCE NOM MARÍA,04
+"dpto_50","09","El Carrizal","l10n_sv_rk.04",EL CARRIZAL,04
+"dpto_51","10","El Paraiso","l10n_sv_rk.04",EL PARAÍSO,04
+"dpto_52","11","La Laguna","l10n_sv_rk.04",LA LAGUNA,04
+"dpto_53","12","La Palma","l10n_sv_rk.04",LA PALMA,04
+"dpto_54","13","La Reina","l10n_sv_rk.04",LA REINA,04
+"dpto_55","14","Las Vueltas","l10n_sv_rk.04",LAS VUELTAS,04
+"dpto_56","15","Nombre De Jesus","l10n_sv_rk.04",NOMBRE DE JESUS,04
+"dpto_57","16","Nva Concepcion","l10n_sv_rk.04",NVA CONCEPCIÓN,04
+"dpto_58","17","Nueva Trinidad","l10n_sv_rk.04",NUEVA TRINIDAD,04
+"dpto_59","18","Ojos De Agua","l10n_sv_rk.04",OJOS DE AGUA,04
+"dpto_60","19","Potonico","l10n_sv_rk.04",POTONICO,04
+"dpto_61","20","San Ant La Cruz","l10n_sv_rk.04",SAN ANT LA CRUZ,04
+"dpto_62","21","San Ant Ranchos","l10n_sv_rk.04",SAN ANT RANCHOS,04
+"dpto_63","22","San Fernando","l10n_sv_rk.04",SAN FERNANDO,04
+"dpto_64","23","San Francisco Lempa","l10n_sv_rk.04",SAN FRANCISCO LEMPA,04
+"dpto_65","24","San Francisco Morazan","l10n_sv_rk.04",SAN FRANCISCO MORAZÁN,04
+"dpto_66","25","San Ignacio","l10n_sv_rk.04",SAN IGNACIO,04
+"dpto_67","26","San I Labrador","l10n_sv_rk.04",SAN I LABRADOR,04
+"dpto_68","27","San J Cancasque","l10n_sv_rk.04",SAN J CANCASQUE,04
+"dpto_69","28","San Jose Flores","l10n_sv_rk.04",SAN JOSE FLORES,04
+"dpto_70","29","San Luis Carmen","l10n_sv_rk.04",SAN LUIS CARMEN,04
+"dpto_71","30","Sn Mig Mercedes","l10n_sv_rk.04",SN MIG MERCEDES,04
+"dpto_72","31","San Rafael","l10n_sv_rk.04",SAN RAFAEL,04
+"dpto_73","32","Santa Rita","l10n_sv_rk.04",SANTA RITA,04
+"dpto_74","33","Tejutla","l10n_sv_rk.04",TEJUTLA,04
+"dpto_75","01","Antiguo Cuscatlan","l10n_sv_rk.05",ANTGO CUSCATLÁN,05
+"dpto_76","02","Ciudad Arce","l10n_sv_rk.05",CIUDAD ARCE,05
+"dpto_77","03","Colon","l10n_sv_rk.05",COLON,05
+"dpto_78","04","Comasagua","l10n_sv_rk.05",COMASAGUA,05
+"dpto_79","05","Chiltiupan","l10n_sv_rk.05",CHILTIUPAN,05
+"dpto_80","06","Huizucar","l10n_sv_rk.05",HUIZÚCAR,05
+"dpto_81","07","Jayaque","l10n_sv_rk.05",JAYAQUE,05
+"dpto_82","08","Jicalapa","l10n_sv_rk.05",JICALAPA,05
+"dpto_83","09","La Libertad","l10n_sv_rk.05",LA LIBERTAD,05
+"dpto_84","10","Nuevo Cuscatlan","l10n_sv_rk.05",NUEVO CUSCATLÁN,05
+"dpto_85","11","Santa Tecla","l10n_sv_rk.05",SANTA TECLA,05
+"dpto_86","12","Quezaltepeque","l10n_sv_rk.05",QUEZALTEPEQUE,05
+"dpto_87","13","Sacacoyo","l10n_sv_rk.05",SACACOYO,05
+"dpto_88","14","Sn J Villanueva","l10n_sv_rk.05",SN J VILLANUEVA,05
+"dpto_89","15","San Juan Opico","l10n_sv_rk.05",SAN JUAN OPICO,05
+"dpto_90","16","San Matias","l10n_sv_rk.05",SAN MATÍAS,05
+"dpto_91","17","San P Tacachico","l10n_sv_rk.05",SAN P TACACHICO,05
+"dpto_92","18","Tamanique","l10n_sv_rk.05",TAMANIQUE,05
+"dpto_93","19","Talnique","l10n_sv_rk.05",TALNIQUE,05
+"dpto_94","20","Teotepeque","l10n_sv_rk.05",TEOTEPEQUE,05
+"dpto_95","21","Tepecoyo","l10n_sv_rk.05",TEPECOYO,05
+"dpto_96","22","Zaragoza","l10n_sv_rk.05",ZARAGOZA,05
+"dpto_97","01","Aguilares","l10n_sv_rk.06",AGUILARES,06
+"dpto_98","02","Apopa","l10n_sv_rk.06",APOPA,06
+"dpto_99","03","Ayutuxtepeque","l10n_sv_rk.06",AYUTUXTEPEQUE,06
+"dpto_100","04","Cuscatancingo","l10n_sv_rk.06",CUSCATANCINGO,06
+"dpto_101","05","El Paisnal","l10n_sv_rk.06",EL PAISNAL,06
+"dpto_102","06","Guazapa","l10n_sv_rk.06",GUAZAPA,06
+"dpto_103","07","Ilopango","l10n_sv_rk.06",ILOPANGO,06
+"dpto_104","08","Mejicanos","l10n_sv_rk.06",MEJICANOS,06
+"dpto_105","09","Nejapa","l10n_sv_rk.06",NEJAPA,06
+"dpto_106","10","Panchimalco","l10n_sv_rk.06",PANCHIMALCO,06
+"dpto_107","11","Rosario De Mora","l10n_sv_rk.06",ROSARIO DE MORA,06
+"dpto_108","12","San Marcos","l10n_sv_rk.06",SAN MARCOS,06
+"dpto_109","13","San Martin","l10n_sv_rk.06",SAN MARTIN,06
+"dpto_110","14","San Salvador","l10n_sv_rk.06",SAN SALVADOR,06
+"dpto_111","15","Stg Texacuangos","l10n_sv_rk.06",STG TEXACUANGOS,06
+"dpto_112","16","Santo Tomas","l10n_sv_rk.06",SANTO TOMAS,06
+"dpto_113","17","Soyapango","l10n_sv_rk.06",SOYAPANGO,06
+"dpto_114","18","Tonacatepeque","l10n_sv_rk.06",TONACATEPEQUE,06
+"dpto_115","19","Ciudad Delgado","l10n_sv_rk.06",CIUDAD DELGADO,06
+"dpto_116","01","Candelaria","l10n_sv_rk.07",CANDELARIA,07
+"dpto_117","02","Cojutepeque","l10n_sv_rk.07",COJUTEPEQUE,07
+"dpto_118","03","El Carmen","l10n_sv_rk.07",EL CARMEN,07
+"dpto_119","04","El Rosario","l10n_sv_rk.07",EL ROSARIO,07
+"dpto_120","05","Monte San Juan","l10n_sv_rk.07",MONTE SAN JUAN,07
+"dpto_121","06","Orat Concepcion","l10n_sv_rk.07",ORAT CONCEPCIÓN,07
+"dpto_122","07","San B Perulapia","l10n_sv_rk.07",SAN B PERULAPIA,07
+"dpto_123","08","San Cristobal","l10n_sv_rk.07",SAN CRISTÓBAL,07
+"dpto_124","09","San J Guayabal","l10n_sv_rk.07",SAN J GUAYABAL,07
+"dpto_125","10","San P Perulapan","l10n_sv_rk.07",SAN P PERULAPÁN,07
+"dpto_126","11","San Raf Cedros","l10n_sv_rk.07",SAN RAF CEDROS,07
+"dpto_127","12","San Ramon","l10n_sv_rk.07",SAN RAMON,07
+"dpto_128","13","Sta C Analquito","l10n_sv_rk.07",STA C ANALQUITO,07
+"dpto_129","14","Sta C Michapa","l10n_sv_rk.07",STA C MICHAPA,07
+"dpto_130","15","Suchitoto","l10n_sv_rk.07",SUCHITOTO,07
+"dpto_131","16","Tenancingo","l10n_sv_rk.07",TENANCINGO,07
+"dpto_132","01","Cuyultitan","l10n_sv_rk.08",CUYULTITÁN,08
+"dpto_133","02","Rosario La Paz","l10n_sv_rk.08",EL ROSARIO,08
+"dpto_134","03","Jerusalen","l10n_sv_rk.08",JERUSALÉN,08
+"dpto_135","04","Merced La Ceiba","l10n_sv_rk.08",MERCED LA CEIBA,08
+"dpto_136","05","Olocuilta","l10n_sv_rk.08",OLOCUILTA,08
+"dpto_137","06","Paraiso Osorio","l10n_sv_rk.08",PARAÍSO OSORIO,08
+"dpto_138","07","Sn Ant Masahuat","l10n_sv_rk.08",SN ANT MASAHUAT,08
+"dpto_139","08","San Emigdio","l10n_sv_rk.08",SAN EMIGDIO,08
+"dpto_140","09","Sn Fco Chinamec","l10n_sv_rk.08",SN FCO CHINAMEC,08
+"dpto_141","10","San J Nonualco","l10n_sv_rk.08",SAN J NONUALCO,08
+"dpto_142","11","San Juan Talpa","l10n_sv_rk.08",SAN JUAN TALPA,08
+"dpto_143","12","San Juan Tepezontes","l10n_sv_rk.08",SAN JUAN TEPEZONTES,08
+"dpto_144","13","San Luis Talpa","l10n_sv_rk.08",SAN LUIS TALPA,08
+"dpto_145","14","San Miguel Tepezontes","l10n_sv_rk.08",SAN MIGUEL TEPEZONTES,08
+"dpto_146","15","San Pedro Masahuat","l10n_sv_rk.08",SAN PEDRO MASAHUAT,08
+"dpto_147","16","San Pedro Nonualco","l10n_sv_rk.08",SAN PEDRO NONUALCO,08
+"dpto_148","17","San R Obrajuelo","l10n_sv_rk.08",SAN R OBRAJUELO,08
+"dpto_149","18","Sta Ma Ostuma","l10n_sv_rk.08",STA MA OSTUMA,08
+"dpto_150","19","Stgo Nonualco","l10n_sv_rk.08",STGO NONUALCO,08
+"dpto_151","20","Tapalhuaca","l10n_sv_rk.08",TAPALHUACA,08
+"dpto_152","21","Zacatecoluca","l10n_sv_rk.08",ZACATECOLUCA,08
+"dpto_153","22","Sn Luis La Herr","l10n_sv_rk.08",SN LUIS LA HERR,08
+"dpto_154","01","Cinquera","l10n_sv_rk.09",CINQUERA,09
+"dpto_155","02","Guacotecti","l10n_sv_rk.09",GUACOTECTI,09
+"dpto_156","03","Ilobasco","l10n_sv_rk.09",ILOBASCO,09
+"dpto_157","04","Jutiapa","l10n_sv_rk.09",JUTIAPA,09
+"dpto_158","05","San Isidro","l10n_sv_rk.09",SAN ISIDRO,09
+"dpto_159","06","Sensuntepeque","l10n_sv_rk.09",SENSUNTEPEQUE,09
+"dpto_160","07","Tejutepeque","l10n_sv_rk.09",TEJUTEPEQUE,09
+"dpto_161","08","Victoria","l10n_sv_rk.09",VICTORIA,09
+"dpto_162","09","Dolores","l10n_sv_rk.09",DOLORES,09
+"dpto_163","01","Apastepeque","l10n_sv_rk.10",APASTEPEQUE,10
+"dpto_164","02","Guadalupe","l10n_sv_rk.10",GUADALUPE,10
+"dpto_165","03","San Cay Istepeq","l10n_sv_rk.10",SAN CAY ISTEPEQ,10
+"dpto_166","04","Santa Clara","l10n_sv_rk.10",SANTA CLARA,10
+"dpto_167","05","Santo Domingo","l10n_sv_rk.10",SANTO DOMINGO,10
+"dpto_168","06","Sn Est Catarina","l10n_sv_rk.10",SN EST CATARINA,10
+"dpto_169","07","San Ildefonso","l10n_sv_rk.10",SAN ILDEFONSO,10
+"dpto_170","08","San Lorenzo","l10n_sv_rk.10",SAN LORENZO,10
+"dpto_171","09","San Sebastian","l10n_sv_rk.10",SAN SEBASTIÁN,10
+"dpto_172","10","San Vicente","l10n_sv_rk.10",SAN VICENTE,10
+"dpto_173","11","Tecoluca","l10n_sv_rk.10",TECOLUCA,10
+"dpto_174","12","Tepetitan","l10n_sv_rk.10",TEPETITÁN,10
+"dpto_175","13","Verapaz","l10n_sv_rk.10",VERAPAZ,10
+"dpto_176","01","Alegria","l10n_sv_rk.11",ALEGRÍA,11
+"dpto_177","02","Berlin","l10n_sv_rk.11",BERLÍN,11
+"dpto_178","03","California","l10n_sv_rk.11",CALIFORNIA,11
+"dpto_179","04","Concep Batres","l10n_sv_rk.11",CONCEP BATRES,11
+"dpto_180","05","El Triunfo","l10n_sv_rk.11",EL TRIUNFO,11
+"dpto_181","06","Ereguayquin","l10n_sv_rk.11",EREGUAYQUÍN,11
+"dpto_182","07","Estanzuelas","l10n_sv_rk.11",ESTANZUELAS,11
+"dpto_183","08","Jiquilisco","l10n_sv_rk.11",JIQUILISCO,11
+"dpto_184","09","Jucuapa","l10n_sv_rk.11",JUCUAPA,11
+"dpto_185","10","Jucuaran","l10n_sv_rk.11",JUCUARÁN,11
+"dpto_186","11","Mercedes Umaña","l10n_sv_rk.11",MERCEDES UMAÑA,11
+"dpto_187","12","Nueva Granada","l10n_sv_rk.11",NUEVA GRANADA,11
+"dpto_188","13","Ozatlan","l10n_sv_rk.11",OZATLÁN,11
+"dpto_189","14","Pto El Triunfo","l10n_sv_rk.11",PTO EL TRIUNFO,11
+"dpto_190","15","San Agustin","l10n_sv_rk.11",SAN AGUSTÍN,11
+"dpto_191","16","Sn Buenaventura","l10n_sv_rk.11",SN BUENAVENTURA,11
+"dpto_192","17","San Dionisio","l10n_sv_rk.11",SAN DIONISIO,11
+"dpto_193","18","Santa Elena","l10n_sv_rk.11",SANTA ELENA,11
+"dpto_194","19","San Fco Javier","l10n_sv_rk.11",SAN FCO JAVIER,11
+"dpto_195","20","Santa Maria","l10n_sv_rk.11",SANTA MARÍA,11
+"dpto_196","21","Stgo De Maria","l10n_sv_rk.11",STGO DE MARÍA,11
+"dpto_197","22","Tecapan","l10n_sv_rk.11",TECAPÁN,11
+"dpto_198","23","Usulutan","l10n_sv_rk.11",USULUTÁN,11
+"dpto_199","01","Carolina","l10n_sv_rk.12",CAROLINA,12
+"dpto_200","02","Ciudad Barrios","l10n_sv_rk.12",CIUDAD BARRIOS,12
+"dpto_201","03","Comacaran","l10n_sv_rk.12",COMACARÁN,12
+"dpto_202","04","Chapeltique","l10n_sv_rk.12",CHAPELTIQUE,12
+"dpto_203","05","Chinameca","l10n_sv_rk.12",CHINAMECA,12
+"dpto_204","06","Chirilagua","l10n_sv_rk.12",CHIRILAGUA,12
+"dpto_205","07","El Transito","l10n_sv_rk.12",EL TRANSITO,12
+"dpto_206","08","Lolotique","l10n_sv_rk.12",LOLOTIQUE,12
+"dpto_207","09","Moncagua","l10n_sv_rk.12",MONCAGUA,12
+"dpto_208","10","Nueva Guadalupe","l10n_sv_rk.12",NUEVA GUADALUPE,12
+"dpto_209","11","Nvo Eden S Juan","l10n_sv_rk.12",NVO EDÉN S JUAN,12
+"dpto_210","12","Quelepa","l10n_sv_rk.12",QUELEPA,12
+"dpto_211","13","San Ant D Mosco","l10n_sv_rk.12",SAN ANT D MOSCO,12
+"dpto_212","14","San Gerardo","l10n_sv_rk.12",SAN GERARDO,12
+"dpto_213","15","San Jorge","l10n_sv_rk.12",SAN JORGE,12
+"dpto_214","16","San Luis Reina","l10n_sv_rk.12",SAN LUIS REINA,12
+"dpto_215","17","San Miguel","l10n_sv_rk.12",SAN MIGUEL,12
+"dpto_216","18","San Raf Oriente","l10n_sv_rk.12",SAN RAF ORIENTE,12
+"dpto_217","19","Sesori","l10n_sv_rk.12",SESORI,12
+"dpto_218","20","Uluazapa","l10n_sv_rk.12",ULUAZAPA,12
+"dpto_219","01","Arambala","l10n_sv_rk.13",ARAMBALA,13
+"dpto_220","02","Cacaopera","l10n_sv_rk.13",CACAOPERA,13
+"dpto_221","03","Corinto","l10n_sv_rk.13",CORINTO,13
+"dpto_222","04","Chilanga","l10n_sv_rk.13",CHILANGA,13
+"dpto_223","05","Delic De Concep","l10n_sv_rk.13",DELIC DE CONCEP,13
+"dpto_224","06","El Divisadero","l10n_sv_rk.13",EL DIVISADERO,13
+"dpto_225","07","El Rosario","l10n_sv_rk.13",EL ROSARIO,13
+"dpto_226","08","Gualococti","l10n_sv_rk.13",GUALOCOCTI,13
+"dpto_227","09","Guatajiagua","l10n_sv_rk.13",GUATAJIAGUA,13
+"dpto_228","10","Joateca","l10n_sv_rk.13",JOATECA,13
+"dpto_229","11","Jocoaitique","l10n_sv_rk.13",JOCOAITIQUE,13
+"dpto_230","12","Jocoro","l10n_sv_rk.13",JOCORO,13
+"dpto_231","13","Lolotiquillo","l10n_sv_rk.13",LOLOTIQUILLO,13
+"dpto_232","14","Meanguera","l10n_sv_rk.13",MEANGUERA,13
+"dpto_233","15","Osicala","l10n_sv_rk.13",OSICALA,13
+"dpto_234","16","Perquin","l10n_sv_rk.13",Otro País,
+"dpto_235","17","San Carlos","l10n_sv_rk.13",AHUACHAPÁN,
+"dpto_236","18","San Fernando","l10n_sv_rk.13",APANECA,
+"dpto_237","19","San Fco Gotera","l10n_sv_rk.13",ATIQUIZAYA,
+"dpto_238","20","San Isidro","l10n_sv_rk.13",CONCEPCIÓN DE ATACO,
+"dpto_239","21","San Simon","l10n_sv_rk.13",EL REFUGIO,
+"dpto_240","22","Sensembra","l10n_sv_rk.13",GUAYMANGO,
+"dpto_241","23","Sociedad","l10n_sv_rk.13",JUJUTLA,
+"dpto_242","24","Torola","l10n_sv_rk.13",SAN FRANCISCO MENÉNDEZ,
+"dpto_243","25","Yamabal","l10n_sv_rk.13",SAN LORENZO,
+"dpto_244","26","Yoloaiquin","l10n_sv_rk.13",SAN PEDRO PUXTLA,
+"dpto_245","01","Anamoros","l10n_sv_rk.14",TACUBA,
+"dpto_246","02","Bolivar","l10n_sv_rk.14",TURÍN,
+"dpto_247","03","Concep De Ote","l10n_sv_rk.14",CANDELARIA DE LA FRONTERA,
+"dpto_248","04","Conchagua","l10n_sv_rk.14",COATEPEQUE,
+"dpto_249","05","El Carmen","l10n_sv_rk.14",CHALCHUAPA,
+"dpto_250","06","El Sauce","l10n_sv_rk.14",EL CONGO,
+"dpto_251","07","Intipuca","l10n_sv_rk.14",EL PORVENIR,
+"dpto_252","08","La Union","l10n_sv_rk.14",MASAHUAT,
+"dpto_253","09","Lislique","l10n_sv_rk.14",METAPÁN,
+"dpto_254","10","Meang Del Golfo","l10n_sv_rk.14",SAN ANTONIO PAJONAL,
+"dpto_255","11","Nueva Esparta","l10n_sv_rk.14",SAN SEBASTIÁN SALITRILLO,
+"dpto_256","12","Pasaquina","l10n_sv_rk.14",SANTA ANA,
+"dpto_257","13","Poloros","l10n_sv_rk.14",STA ROSA GUACHI,
+"dpto_258","14","San Alejo","l10n_sv_rk.14",STGO D LA FRONT,
+"dpto_259","15","San Jose","l10n_sv_rk.14",TEXISTEPEQUE,
+"dpto_260","16","Santa Rosa Lima","l10n_sv_rk.14",ACAJUTLA,
+"dpto_261","17","Yayantique","l10n_sv_rk.14",ARMENIA,
+"dpto_262","18","Yucuaiquin","l10n_sv_rk.14",CALUCO,

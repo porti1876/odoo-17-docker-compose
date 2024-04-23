@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_incoterms_tree" model="ir.ui.view">
+        <field name="name">catalogo.incoterms.view.tree</field>
+        <field name="model">catalogo.incoterms</field>
+        <field name="arch" type="xml">
+            <tree string="Incoterms Factura Electronica El Salvador">
+                <field name="code"/>
+                <field name="codeIncoterms"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+    <record id="action_incoterms_contacts" model="ir.actions.act_window">
+        <field name="name">Incoterms Factura Electronica El Salvador</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">catalogo.incoterms</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    
+    <menuitem id="menu_finance_incoterms"
+    name="Incoterms Factura Electronica El Salvador"
+    parent="account.menu_finance_configuration"
+    action="action_incoterms_contacts"
+    sequence="101"
+/>
+
+ 
+
+
+</odoo>

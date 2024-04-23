@@ -1,0 +1,5 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_res_municipality","access_res_municipality","model_res_municipality","base.group_user","1","1","1","1"
+"access_res_giro","access_res_giro","model_res_giro","base.group_user","1","1","1","1"
+"access_res_regimen","access_res_regimen","model_catalogo_recinto_fiscal","base.group_user","1","1","1","1"
+"access_res_regimen","access_res_regimen","l10n_sv_rk.model_res_regimen","base.group_user","1","1","1","1"

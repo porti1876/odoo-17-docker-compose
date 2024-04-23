@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Compras e IVA por Compras -->
+        <record id="tax_iva_sale_13_id" model="account.tax">
+            <field name="name">IVA 13% Compras</field>
+            <field name="description">IVA 13% Compras</field>
+            <field name="amount">13</field>
+            <field name="amount_type">percent</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="price_include" eval="False"/>
+            <field name="tax_group_id" ref="tax_group_iva_13"/>
+            <field name="country_id" ref="base.sv"/>
+        </record>
+
+
+        <!-- Ventas e IVA por pagar -->
+
+        <record id="tax_iva_purchase_13" model="account.tax">
+            <field name="name">IVA 13% Ventas</field>
+            <field name="description">IVA 13% Ventas</field>
+            <field name="amount">13</field>
+            <field name="amount_type">percent</field>
+            <field name="type_tax_use">sale</field>
+            <field name="price_include" eval="False"/>
+            <field name="tax_group_id" ref="tax_group_iva_13"/>
+            <field name="code_dte_sv">20</field>
+            <field name="country_id" ref="base.sv"/>
+
+        </record>
+
+
+        <!-- Exportaciones -->
+
+        <record id="tax_export_0" model="account.tax">
+            <field name="name">Exportaciones 0%</field>
+            <field name="description">Exportaciones 0%</field>
+            <field name="amount">0</field>
+            <field name="amount_type">percent</field>
+            <field name="type_tax_use">sale</field>
+            <field name="price_include" eval="False"/>
+            <field name="tax_group_id" ref="tax_group_iva_export"/>
+            <field name="code_dte_sv">C3</field>
+            <field name="country_id" ref="base.sv"/>
+
+        </record>
+
+
+        <!-- Importaciones e IVA por Compras -->
+
+        <record id="tax_import_0" model="account.tax">
+            <field name="name">Importaciones 0%</field>
+            <field name="description">Importaciones 0%</field>
+            <field name="amount">0</field>
+            <field name="amount_type">percent</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="price_include" eval="False"/>
+            <field name="tax_group_id" ref="tax_group_iva_import_13"/>
+            <field name="code_dte_sv">C3</field>
+            <field name="country_id" ref="base.sv"/>
+
+        </record>
+
+
+        <!-- Percepción 1% compras -->
+
+        <record id="tax_percepcion_1" model="account.tax">
+            <field name="name">Percepción 1%</field>
+            <field name="description">Percepción sobre compras 1%</field>
+            <field name="amount">1</field>
+            <field name="amount_type">percent</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="price_include" eval="False"/>
+            <field name="tax_group_id" ref="tax_group_percepcion_1"/>
+            <field name="country_id" ref="base.sv"/>
+
+        </record>
+
+
+        <!-- Retención 1% ventas -->
+
+        <record id="tax_retencion_1" model="account.tax">
+            <field name="name">Retención 1%</field>
+            <field name="description">Retención sobre ventas 1%</field>
+            <field name="amount">-1</field>
+            <field name="amount_type">percent</field>
+            <field name="type_tax_use">sale</field>
+            <field name="price_include" eval="False"/>
+            <field name="tax_group_id" ref="tax_group_retencion_1"/>
+            <field name="country_id" ref="base.sv"/>
+
+        </record>
+
+        <!-- CESC 5% compras -->
+
+        <record id="tax_cesc_5" model="account.tax">
+            <field name="name">CESC 5%</field>
+            <field name="description">CESC 5%</field>
+            <field name="amount">5</field>
+            <field name="amount_type">percent</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="price_include" eval="False"/>
+            <field name="tax_group_id" ref="tax_group_cesc_5"/>
+            <field name="country_id" ref="base.sv"/>
+
+        </record>
+
+
+        <!-- Renta 10% -->
+
+        <record id="tax_rent_10" model="account.tax">
+            <field name="name">Renta 10%</field>
+            <field name="description">Renta 10%</field>
+            <field name="amount">-10</field>
+            <field name="amount_type">percent</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="price_include" eval="False"/>
+            <field name="tax_group_id" ref="tax_group_renta_10"/>
+            <field name="country_id" ref="base.sv"/>
+
+        </record>
+
+        <!-- Gasolina -->
+
+        <record id="tax_fovial" model="account.tax">
+
+            <field name="name">Fovial</field>
+            <field name="description">Fovial</field>
+            <field name="amount">0.20</field>
+            <field name="amount_type">fixed</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="price_include" eval="False"/>
+            <field name="tax_group_id" ref="tax_group_fovial"/>
+            <field name="country_id" ref="base.sv"/>
+
+        </record>
+
+        <record id="tax_cotrans" model="account.tax">
+
+            <field name="name">Cotrans</field>
+            <field name="description">Cotrans</field>
+            <field name="amount">0.10</field>
+            <field name="amount_type">fixed</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="price_include" eval="False"/>
+            <field name="tax_group_id" ref="tax_group_cotrans"/>
+            <field name="country_id" ref="base.sv"/>
+
+        </record>
+
+
+        <!--2- TRIBUTOS APLICADOS POR ÍTEMS REFLEJADOS EN EL CUERPO DEL DOCUMENTO-->
+
+        <!--        <record id="tax_tribute_cuerpo_del_documento_1" model="account.tax">-->
+        <!--            <field name="name">Impuesto Especial al Combustible</field>-->
+        <!--            <field name="description">Impuesto Especial al Combustible</field>-->
+        <!--            <field name="tax_group_id" ref="tax_group_tribute_2"/>-->
+        <!--            <field name="code_dte_sv">A8</field>-->
+        <!--        </record>-->
+
+
+        <!--        <record id="tax_tribute_cuerpo_del_documento_2" model="account.tax">-->
+        <!--            <field name="name">Impuesto industria al cemento</field>-->
+        <!--            <field name="description">Impuesto industria al cemento</field>-->
+        <!--            <field name="tax_group_id" ref="tax_group_tribute_2"/>-->
+        <!--            <field name="code_dte_sv">57</field>-->
+        <!--        </record>-->
+
+
+        <!--        <record id="tax_tribute_cuerpo_del_documento_3" model="account.tax">-->
+        <!--            <field name="name">Impuesto especial a la primera matrícula</field>-->
+        <!--            <field name="description">Impuesto especial a la primera matrícula</field>-->
+        <!--            <field name="tax_group_id" ref="tax_group_tribute_2"/>-->
+        <!--            <field name="code_dte_sv">90</field>-->
+        <!--        </record>-->
+
+
+        <!--        <record id="tax_tribute_cuerpo_del_documento_4" model="account.tax">-->
+        <!--            <field name="name">Otros impuestos casos especiales</field>-->
+        <!--            <field name="description">Otros impuestos casos especiales</field>-->
+        <!--            <field name="tax_group_id" ref="tax_group_tribute_2"/>-->
+        <!--            <field name="code_dte_sv">D4</field>-->
+        <!--        </record>-->
+
+
+        <!--        <record id="tax_tribute_cuerpo_del_documento_5" model="account.tax">-->
+        <!--            <field name="name">Otras tasas casos especiales</field>-->
+        <!--            <field name="description">Otras tasas casos especiales</field>-->
+        <!--            <field name="tax_group_id" ref="tax_group_tribute_2"/>-->
+        <!--            <field name="code_dte_sv">D5</field>-->
+        <!--        </record>-->
+
+        <!--        <record id="tax_tribute_cuerpo_del_documento_6" model="account.tax">-->
+        <!--            <field name="name">Impuesto ad- valorem, armas de fuego, municiones explosivas y artículos similares</field>-->
+        <!--            <field name="description">Impuesto ad- valorem, armas de fuego, municiones explosivas y artículos similares</field>-->
+        <!--            <field name="tax_group_id" ref="tax_group_tribute_2"/>-->
+        <!--            <field name="code_dte_sv">A6</field>-->
+        <!--        </record>-->
+
+    </data>
+</odoo>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_company_sv" model="ir.ui.view">
+        <field name="name">view.res.company</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='city']" position="after">
+                <field name="munic_id" class="o_address_state" placeholder="Municipio" options='{"no_open": True}'
+                       context="{'dpto_id': state_id}"/>
+            </xpath>
+            <!-- Campo de NIT -->
+            <xpath expr="//field[@name='vat']" position="before">
+                <field name="document_nit_company"/>
+            </xpath>
+            <!-- Campo de Regimen y Recinto Fiscal -->
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="recinto_fiscal_id" />
+                <field name="regimen_fiscal_id" />
+            </xpath>
+            <!--            Campo de giro-->
+            <xpath expr="//field[@name='document_nit_company']" position="after">
+                <field name="document_giro_company"/>
+            </xpath>
+
+        </field>
+    </record>
+
+
+</odoo>

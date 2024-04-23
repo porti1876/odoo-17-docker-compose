@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="sequence_consumidor_final_dte" model="ir.sequence">
+            <field name="name">Factura Consumidor Final Electrónica</field>
+            <field name="code">account.invoice.fcf</field>
+            <field name="prefix">FE-FC</field>
+            <field name="padding">15</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="False" name="company_id"/>
+        </record>
+        <record id="sequence_credito_fiscal_dte" model="ir.sequence">
+            <field name="name">Comprobante Crédito Fiscal Electrónica</field>
+            <field name="code">account.invoice.ccf</field>
+            <field name="prefix">FE-CCF</field>
+            <field name="padding">15</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="False" name="company_id"/>
+        </record>
+        <record id="sequence_nota_credito_dte" model="ir.sequence">
+            <field name="name">Nota de Crédito Electrónica</field>
+            <field name="code">account.invoice.ndc</field>
+            <field name="prefix">FE-ND</field>
+            <field name="padding">15</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="False" name="company_id"/>
+        </record>
+
+        <record id="sequence_exportacion_dte" model="ir.sequence">
+            <field name="name">Factura de Exportación Electrónica</field>
+            <field name="code">account.invoice.exp</field>
+            <field name="padding">15</field>
+            <field name="prefix">FE-FEX</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="False" name="company_id"/>
+        </record>
+        <record id="sequence_debito_dte" model="ir.sequence">
+            <field name="name">Nota de débito electrónica</field>
+            <field name="code">account.invoice.exp</field>
+            <field name="padding">15</field>
+            <field name="prefix">FE-ND</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="False" name="company_id"/>
+        </record>
+        <record id="sequence_remision_dte" model="ir.sequence">
+            <field name="name">Factura de Remisión Electrónica</field>
+            <field name="code">account.invoice.exp</field>
+            <field name="padding">15</field>
+            <field name="prefix">FE-NR</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="False" name="company_id"/>
+        </record>
+        <record id="sequence_sujeto_ex_dte" model="ir.sequence">
+            <field name="name">Factura de Sujeto Excluido Electrónica</field>
+            <field name="code">account.invoice.exp</field>
+            <field name="padding">15</field>
+            <field name="prefix">FE-FSE</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="False" name="company_id"/>
+        </record>
+        <record id="sequence_doc_contable_dte" model="ir.sequence">
+            <field name="name">Documento Contable de Liquidación Electrónica</field>
+            <field name="code">account.invoice.exp</field>
+            <field name="padding">15</field>
+            <field name="prefix">FE-DCL</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="False" name="company_id"/>
+        </record>
+        <record id="sequence_comprobante_ret_dte" model="ir.sequence">
+            <field name="name">Comprobante de Retención Electrónica</field>
+            <field name="code">account.invoice.exp</field>
+            <field name="padding">15</field>
+            <field name="prefix">FE-CR</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="False" name="company_id"/>
+        </record>
+
+        <record id="sequence_comprobante_liqui_dte" model="ir.sequence">
+            <field name="name">Comprobante de Liquidación Electrónica</field>
+            <field name="code">account.invoice.exp</field>
+            <field name="padding">15</field>
+            <field name="prefix">FE-DCL</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="False" name="company_id"/>
+        </record>
+
+        <record id="sequence_comprobante_dona_dte" model="ir.sequence">
+            <field name="name">Comprobante de Donación Electrónica</field>
+            <field name="code">account.invoice.exp</field>
+            <field name="padding">15</field>
+            <field name="prefix">FE-DCL</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="False" name="company_id"/>
+        </record>
+
+
+        <record id="sequence_anulacion_dte" model="ir.sequence">
+            <field name="name">Anulacion de factura Electrónica</field>
+            <field name="code">account.invoice.anu</field>
+            <field name="padding">15</field>
+            <field name="prefix">FE-ANU</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="False" name="company_id"/>
+        </record>
+        <record id="sequence_factura_proveedor" model="ir.sequence">
+            <field name="name">Registro de Compra</field>
+            <field name="code">account.invoice.prov</field>
+            <field name="prefix">OC-</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="False" name="company_id"/>
+        </record>
+
+        <record id="sequence_pos" model="ir.sequence">
+            <field name="name">Tickets Pos</field>
+            <field name="code">account.invoice.pos</field>
+            <field name="prefix">Ticket</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="False" name="company_id"/>
+        </record>
+
+        <record id="sequence_recibos" model="ir.sequence">
+            <field name="name">Recibos</field>
+            <field name="code">account.invoice.recibos</field>
+            <field name="prefix">Recibos</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="False" name="company_id"/>
+        </record>
+
+        <record id="sequence_reintegros" model="ir.sequence">
+            <field name="name">Reintegros</field>
+            <field name="code">account.invoice.reintegros</field>
+            <field name="prefix">Reintegros</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="False" name="company_id"/>
+        </record>
+
+        <record id="sequence_sujeto_excluido" model="ir.sequence">
+            <field name="name">REX</field>
+            <field name="code">account.invoice.rex</field>
+            <field name="prefix">REX</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="False" name="company_id"/>
+        </record>
+    </data>
+</odoo>

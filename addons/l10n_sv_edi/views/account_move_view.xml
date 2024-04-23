@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_incoterms_move_tree" model="ir.ui.view">
+        <field name="name">account.move.view.tree</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <field name="invoice_incoterm_id" invisible="1"/>
+            <xpath expr="//field[@name='invoice_incoterm_id']" position="before">
+                <field name="es_exportacion" invisible="1"/>
+                <field name="venta_cuenta_terceros"/>
+                <field name="catalogo_inco" string="Incoterm para DTE"
+                       attrs="{'invisible':[('es_exportacion','!=',True)]}"/>
+                <field name="flete" attrs="{'invisible':[('es_exportacion','!=',True)]}"/>
+                <field name="seguro" attrs="{'invisible':[('es_exportacion','!=',True)]}"/>
+            </xpath>
+
+        </field>
+
+    </record>
+
+    <record id="view_move_form_inherit_account" model="ir.ui.view">
+        <field name="name">account.move.view.form.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='tax_totals']" position="before">
+                <field name="es_exportacion" attrs="{'invisible':True}"/>
+                <field name="flete" attrs="{'invisible':[('es_exportacion','!=',True)], 'readonly':True}"/>
+                <field name="seguro" attrs="{'invisible':[('es_exportacion','!=',True)], 'readonly':True}"/>
+                <field name="porcentaje_comision_cdl" attrs="{'invisible':[('number_journal','!=','09')]}"/>
+                <field name="comision_dcl" attrs="{'invisible':[('number_journal','!=','09')]}"/>
+                <field name="iva_comision_dcl" attrs="{'invisible':[('number_journal','!=','09')]}"/>
+                <field name="amount_total_liquidar_dcl" attrs="{'invisible':[('number_journal','!=','09')]}"/>
+
+            </xpath>
+            <xpath expr="//field[@name='tax_totals']" position="after">
+                <field name="total_exportacion" attrs="{'invisible':[('number_journal','!=','11')]}"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

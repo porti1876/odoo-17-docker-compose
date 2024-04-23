@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data >
+        <record id="server_list_action" model="ir.actions.act_window">
+            <field name="name">Servidores</field>
+            <field name="res_model">ln10_sv_saas.droplets</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face"> 
+                Crear 
+                </p>
+            </field>
+
+        </record>
+
+
+        <record id="instan_list_action" model="ir.actions.act_window">
+            <field name="name">Archivos de configuracion </field>
+            <field name="res_model">ln10_sv_saas.instancias</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face"> 
+                Crear 
+                </p>
+            </field>
+
+        </record>   
+        <record id="categorias_list_action" model="ir.actions.act_window">
+            <field name="name">Categorias de modulos</field>
+            <field name="res_model">ln10_sv_saas.category</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face"> 
+                Crear 
+                </p>
+            </field>
+
+        </record>
+
+
+        <record id="contacts_list_action" model="ir.actions.act_window">
+            <field name="name">Clientes</field>
+            <field name="res_model">ln10_sv_saas.client</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face"> 
+                Crear 
+                </p>
+            </field>
+
+        </record>
+
+       
+
+
+        <record id="odoo_install" model="ir.actions.act_window">
+            <field name="name">Script Odoo</field>
+            <field name="res_model">ln10_sv_saas.install</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face"> 
+                Crear 
+                </p>
+            </field>
+
+        </record>
+
+        <record id="add_cl_pke" model="ir.actions.act_window">
+            <field name="name">Añadir clave privada</field>
+            <field name="res_model">ln10_sv_saas.pkey</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face"> 
+                Crear 
+                </p>
+            </field>
+            
+
+        </record>
+
+
+
+
+        <record id="add_key_private" model="ir.actions.act_window">
+            <field name="name">Clave Privada </field>
+            <field name="res_model">add.pkey.rskay</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face"> 
+                Crear 
+                </p>
+            </field>
+  
+        </record>   
+
+        <record id="file" model="ir.actions.act_window">
+            <field name="name">extraer archivos .conf</field>
+            <field name="res_model">files.instancias</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face"> 
+                Crear 
+                </p>
+            </field>
+        </record>  
+
+        <record id="systemc" model="ir.actions.act_window">
+            <field name="name">extraer archivos systemctl</field>
+            <field name="res_model">files.systemctl</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face"> 
+                Crear 
+                </p>
+            </field>
+        </record> 
+
+        <record id="lista_syste" model="ir.actions.act_window">
+            <field name="name">Archivos systemctl</field>
+            <field name="res_model">listas.systemctl</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face"> 
+                Crear 
+                </p>
+            </field>
+          </record>  
+
+          <record model="ir.actions.act_window" id="copy_files">
+            <field name="name">Crear Instancia</field>
+            <field name="res_model">craete.instancia</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="cp_instancias"/>
+            <field name="target">new</field>
+        </record>
+  
+        <record model="ir.actions.act_window" id="cr_users_pos">
+          <field name="name">create users postgres</field>
+          <field name="res_model">creates.psql</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="view_mode">form</field>
+          <field name="view_id" ref="cr_user_postgres"/>
+          <field name="target">new</field>
+      </record>
+  
+      <record model="ir.actions.act_window" id="master_password">
+        <field name="name">crear master password</field>
+        <field name="res_model">super.password</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="master_password_form"/>
+        <field name="target">current</field>
+    </record>
+
+    <record id="planes_list_action" model="ir.actions.act_window">
+        <field name="name">Planes de pago</field>
+        <field name="res_model">plan.saas</field>
+        <field name="view_mode">tree,form,calendar</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face"> 
+            Crear 
+            </p>
+        </field>
+
+    </record>
+
+
+    <record id="model_pdf" model="ir.actions.server">
+      <field name="name">PDF</field>
+      <field name="model_id" ref="model_plan_saas"/>
+      <field name="binding_model_id" ref="model_plan_saas"/>
+      <field name="state">code</field>
+      <field name="code">action = records.generate_pdf_report()</field>
+  </record>
+
+  <record model="ir.actions.act_window" id="add_ssh_keys">
+    <field name="name">Add SSH KEYS</field>
+    <field name="res_model">add.keyget</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="add_ir_keys"/>
+    <field name="target">new</field>
+</record>
+
+<record model="ir.actions.act_window" id="delete_ssh_keys">
+    <field name="name">Delete SSH KEYS</field>
+    <field name="res_model">dele.keys</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="dele_ir_keys"/>
+    <field name="target">new</field>
+</record>
+
+<record model="ir.actions.act_window" id="add_projects">
+    <field name="name">Crear Projectos</field>
+    <field name="res_model">projects.add</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="add_ir_projects"/>
+    <field name="target">new</field>
+</record>
+
+<record model="ir.actions.act_window" id="delete_projects">
+    <field name="name">Delete Projects</field>
+    <field name="res_model">delele.projects</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="dele_ir_proje"/>
+    <field name="target">new</field>
+</record>
+
+    <menuitem name="Saas Sv" id="res_server" sequence="1"/>
+
+    <menuitem id="res_server_sub" name="Droplets" parent="res_server" sequence="2" />
+    <menuitem id="res_server_server" name="Register Droplets" parent="res_server_sub" sequence="3"  action="server_list_action"/>
+    
+    <menuitem id="ssh_pub_keys" name="SSH key" parent="res_server_sub" sequence="4"/>
+    <menuitem id="delete_menu_server" name="Delete SSH key" parent="ssh_pub_keys" action="delete_ssh_keys" sequence="5"/>
+    <menuitem id="add_menu_server" name="Add SSH key" parent="ssh_pub_keys" action="add_ssh_keys" sequence="6"/>
+
+    <menuitem id="add_projec" name="Proyectos" parent="res_server_sub" sequence="7"/>
+    <menuitem id="add_menu_project" name="Crear Proyecto" parent="add_projec" action="add_projects" sequence="8"/>
+    <menuitem id="del_menu_project" name="Eliminar Proyecto" parent="add_projec" action="delete_projects" sequence="9" />
+    
+    <menuitem id="odoo_script" name="Odoo Install Script" parent="res_server_sub" sequence="10" />
+    <menuitem id="odoo_install_script" name="Odoo Install Script" parent="odoo_script" action="odoo_install" sequence="11" />
+    <menuitem id="add_pk_prvte" name="Clave Privada" parent="odoo_script" action="add_cl_pke" sequence="12" />
+    
+    <menuitem id="res_serve_sub" name="Instancias" parent="res_server" sequence="16" />
+    <menuitem id="res_instancias_server" name="Configuracion" parent="res_serve_sub" sequence="18" />
+    <menuitem id="res_instancias" name="Archivos .conf" parent="res_instancias_server" action="instan_list_action" sequence="20" />
+    <menuitem id="res_file_system" name="Archivos systemctl" parent="res_instancias_server" action="lista_syste" sequence="21" />
+
+    <menuitem id="copy_ins" name="Crear Instancia" parent="res_serve_sub" sequence="23" action="copy_files" />
+    <menuitem id="cr_users" name="Create Postgres Users" parent="res_serve_sub"  action="cr_users_pos" sequence="25" />
+    <menuitem id="mas_password" name="Generate Master Password" parent="res_serve_sub"  action="master_password" sequence="27" />
+    <menuitem id="add_pkey_private" name="Add Pkey Private" parent="res_serve_sub"  action="add_key_private" sequence="29" />
+
+    <menuitem
+    id="file_instanc"
+    name="Configurar / Extraer Instancias"       
+    parent="res_serve_sub"
+    sequence="32"/>
+
+    <menuitem
+      id="file_conf"
+      name="Extraer archivos .conf"
+      action="file"
+      parent="file_instanc"
+      sequence="35"/>
+
+      <menuitem
+        id="file_system"
+        name="Extraer archivos systemctl"
+        action="systemc"
+        parent="file_instanc"
+        sequence="37"/>
+
+
+
+
+
+
+
+
+    
+
+    <menuitem id="res_planes_sub" name="Plan de Pago" parent="res_server" sequence="39" />
+    <menuitem id="res_planes_server" name="Planes de pago" parent="res_planes_sub"  action="planes_list_action"  sequence="40" />
+        
+
+    <menuitem id="res_cat_sub" name="Modulos" parent="res_server" sequence="42" />
+    <menuitem id="res_categorias_server" name="Categorias modulos" parent="res_cat_sub" action="categorias_list_action" sequence="45"  />
+    
+   
+    <menuitem id="res_clien_sub" name="Clientes" parent="res_server" sequence="47"  />
+    <menuitem id="res_contactos_server" name="Control" parent="res_clien_sub" action="contacts_list_action" sequence="49" />
+
+
+</data>
+</odoo>

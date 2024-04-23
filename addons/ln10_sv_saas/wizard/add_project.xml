@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="add_ir_projects" model="ir.ui.view">
+        <field name="name">Añadir Projects</field>
+        <field name="model">projects.add</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="descripcion"/>
+                            <field name="objetivo"/>
+                             <field name="otro" attrs="{'invisible': [('objetivo', '!=', 'other')]}" />
+                             <field name="entorno"/>
+                        </group>
+                    </sheet>
+                <footer>
+                 <button name="create_projetc" type="object" string="Crear Proyecto" class="oe_highlight"/>
+                    <button special="cancel" string="Cancelar"/>
+                </footer>
+                </form>
+            </field>
+        </record> 
+</odoo>

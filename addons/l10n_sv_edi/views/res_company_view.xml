@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- INHERIT view_company_form  -->
+        <record id="Partner_form" model="ir.ui.view">
+            <field name="name">res.company.form.inherit</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='vat']" position="attributes">
+                    <attribute name="string">NRC</attribute>
+                </xpath>
+
+                <xpath expr="//notebook" position="inside">
+                    <page name="info_dte_sv" string="DTE SV">
+<!--                        <group cols="4" string="Configuración Documento Legible DTE">-->
+<!--                            <group>-->
+<!--                                <field name="bg_color" widget="color"/>-->
+<!--                            </group>-->
+<!--                        </group>-->
+                        <group cols="4" string="Configuración">
+                            <group>
+                                <field name="document_nit" string="Nit sin guión"/>
+                                <field name="cod_estable"/>
+                                <field name="cod_pv"/>
+                                
+                            </group>
+                            <group>
+                                <field name="modo_prueba"/>
+                                <field name="cod_estable_mh"/>
+                                <field name="cod_pv_mh"/>
+                            </group>
+                        </group>
+                        <group cols="4" string="Certificado Digital">
+                            <group>
+                                <field name="archivo_cer"/>
+                                <field name="archivo_key"/>
+                                <field name="contrasena" password="1"/>
+                                <field name="private_pass_mh" password="1"/>
+                                <button name="get_token_dte"
+                                        string="Validar Token" type="object"
+                                        class="oe_edit_only oe_inline oe_highlight"/>
+                                <button name="generate_dte_token"
+                                        string="Token automatico" type="object"
+                                        class="oe_edit_only oe_inline oe_highlight" invisible="1" id="button_validar_token"/>
+                                <button name="borrar_credenciales"
+                                        string="Borrar Credenciales" type="object"
+                                        class="oe_edit_only oe_inline oe_highlight"/>
+                            </group>
+                            <group cols="4">
+                                <field name="token_code" password="False"
+                                       attrs="{'invisible': [('is_token_visible', '=', False)]}"/>
+                                <field name="token_code" password="True"
+                                       attrs="{'invisible': [('is_token_visible', '=', True)]}"/>
+                                <field name="is_token_visible" widget="boolean_toggle"/>
+                                <field name="token_label" readonly="1"/>
+                                <field name="fecha_csd" readonly="1"/>
+                                <button name="borrar_token_dte"
+                                        string="Borrar Tocken DTE" type="object"
+                                        class="oe_edit_only oe_inline oe_highlight"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

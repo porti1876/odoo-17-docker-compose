@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="register_view_form" model="ir.ui.view">
+        <field name="name">Register Server</field>
+        <field name="model">ln10_sv_saas.droplets</field>
+        <field name="arch" type="xml">
+            <form >
+                <button name="create_dropletis" 
+                type="object" string="Create Droplet"  
+                class="oe_highlight" 
+                attrs="{'invisible': [('id', '!=', False)]}"
+                icon="fa-tint"
+               
+                 />
+                 <button name="delete_droplet" 
+                type="object" 
+                string="Destroy Droplet"  
+                class="oe_highlight"  attrs="{'invisible': [('id', '=', False)]}"
+                icon="fa-sharp fa-solid fa-trash" 
+                 /> 
+            <header>
+           
+            
+            </header>
+                <sheet string="Registro de servidores">
+                    
+                        <group>
+                            <group>
+                                <field name="edit" invisible="1" />    
+                                <field name="name" attrs="{'readonly': [('edit', '=', False)]}" />
+                                 <field name="dominio_server" invisible="1" />
+                                 <field name="proveedores" invisible="1"/>
+                                 <field name="region" attrs="{'readonly': [('edit', '=', False)]}"/>
+                                 <field name="image" attrs="{'readonly': [('edit', '=', False)]}"/>
+                                 <field name="options"  attrs="{'readonly': [('edit', '=', False)],'invisible': [('edit', '=', False)]}"/>
+                                 <field name="regular"  attrs="{'invisible': [('options', '!=', 'slug_regular')]}" />
+                                 <field name="intel" attrs="{'invisible': [('options', '!=', 'slug_intel')]}"/>
+                                 <field name="amd" attrs="{'invisible': [('options', '!=', 'slug_amd')]}"/>
+                                 <field name="metodo_autenticidad" attrs="{'readonly': [('edit', '=', False)],'invisible': [('edit', '=', False)]}"/>
+                                 <field name="ssh_key"  attrs="{'invisible': [('metodo_autenticidad', '!=', 'ssh')]}" />             
+                                 <field name="password"  attrs="{'invisible': [('metodo_autenticidad', '!=', 'pass')]}" password="True" />
+                                 <field name="lista_proyecto"  attrs="{'readonly': [('edit', '=', False)],'invisible': [('edit', '=', False)]}"/>                            
+                                 <field name="backups" attrs="{'readonly': [('edit', '=', False)]}"/>
+                             </group>
+                            
+                            
+                                <group>
+                                    <field name="maximos_clientes"/>
+                                    <field name="clientes_server" invisible="1"/>  
+                                    <field name="ip_server" attrs="{'readonly': ['|',('edit', '=', False),('edit', '!=', False)]}"/>
+                                    <field name="estado" attrs="{'readonly': ['|',('edit', '=', False),('edit', '!=', False)]}"  />                                           
+                                </group>
+                            
+                            </group>                                                      
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+
+
+<record id="res_view_list" model="ir.ui.view">
+        <field name="name">res.server.tree</field>
+        <field name="model">ln10_sv_saas.droplets</field>
+        <field name="arch" type="xml">
+    
+            <tree string="Server List">
+            <field name="active"  invisible="1" />
+            
+                <field name="droplet_id" decoration-bf="1" optional="show"/>
+                <field name="name"/>                
+                <field name="ip_server"/>
+                <field name="estado"  />
+                <field name="clientes_server" widget="integer"/>
+                <field name="estado_server" widget="badge"  
+                 decoration-warning="estado_server == 'lleno'"
+                 decoration-info="estado_server == 'disponibles'"
+                 />
+
+              
+                
+
+           
+            </tree>
+        </field>
+     
+</record>
+
+
+<record id="id_server" model="ir.ui.view">
+<field name="name">Odoo Installs</field>
+<field name="model">ln10_sv_saas.install</field>
+<field name="arch" type="xml">
+    <form string="">
+        <header>
+            <button string="upgrade" name="upgrade_ip" type="object" class="oe_highlight"/>
+            <button name="first_step" type="object" string="1 Download the script"  
+            class="oe_highlight" icon="fa-solid fa-1"/>
+            <button name="view_script" type="object" class="oe_highlight" string="2 Modify the parameters as you wish"/>
+            <button name="second_step" type="object" 
+            string="3 Make the script executable"  
+            class="oe_highlight" icon="fa-duotone fa-square-2"/>
+            <button name="installOdoo" type="object" string="4 Execute the script"  
+            class="oe_highlight" icon="fa-duotone fa-download"/>
+        </header>
+        <sheet>              
+            <group>
+                <field name="edit" invisible="1"/>
+                <group>
+                    <field name="name" />
+                    <field name="server"/>
+                    <field name="ssh_ids" />
+                    <field name="port"/>
+                </group>                  
+                <group>
+                   <field name="ip_server"/>
+                   <field name="password_pkey" password="True"/>
+                </group>
+            </group>               
+        </sheet>
+        <div class="oe_chatter">
+            <field name="message_follower_ids"/>
+            <field name="activity_ids"/>
+            <field name="message_ids"/>
+        </div>
+    </form>
+</field>
+</record>
+
+
+<record id="script_odoo_tree" model="ir.ui.view">
+<field name="name">script_odoo.tree</field>
+<field name="model">ln10_sv_saas.install</field>
+<field name="arch" type="xml">
+    <tree string="">
+        <field name="name"/>
+        <field name="ip_server"/>
+    </tree>
+</field>
+</record>
+
+<record id="add_llave_form" model="ir.ui.view">
+<field name="name">Modelo añadir clave privada ssh</field>
+<field name="model">ln10_sv_saas.pkey</field>
+<field name="arch" type="xml">
+    <form string="">
+        <header>      
+            <button name="create_dt" class="oe_highlight" type="object" string="Create" attrs="{'invisible': [('id', '!=', False)]}"/>
+        </header>
+        <sheet>
+            <group>
+               <group>
+                <group>
+                    <field name="name" attrs="{'readonly': [('id', '!=', False)]}"/>
+                </group>
+                <group>
+                    <field name="password_pkey" password="True"  attrs="{'readonly': [('id', '!=', False)]}"/>
+                  
+                </group>
+                                                                     
+               </group> 
+
+              
+
+            </group>
+
+            <notebook>
+                <page  string="Clave SSH Privada">
+                    <group >
+                        <field name="pkey_private"  attrs="{'invisible': [('id', '!=', False)], 'readonly': [('id', '!=', False)]}"/>   
+                    </group>                  
+                </page>
+            </notebook>
+         
+        </sheet>
+        <div class="oe_chatter">
+            <field name="message_follower_ids"/>
+            <field name="activity_ids"/>
+            <field name="message_ids"/>
+        </div>
+    </form>
+</field>
+</record>
+
+
+<record id="view_pkey_tree" model="ir.ui.view">
+<field name="name">view_pkey.tree</field>
+<field name="model">ln10_sv_saas.pkey</field>
+<field name="arch" type="xml">
+    <tree string="">
+        <field name="name"/>
+    </tree>
+</field>
+</record>
+
+<record id="edit_form" model="ir.ui.view">
+<field name="name">editar script odoo</field>
+<field name="model">ln10_sv_saas.edit</field>
+<field name="arch" type="xml">
+    <form string="">
+        <header>
+            <button name="action_show_file" type="object" string="Open File" class="oe_highlight"/>
+            <button name="actualizar" type="object" string="Guardar" class="oe_highlight"/>
+            <button string="odoo" name="execute_sh" type="object" class="oe_highlight"/>
+        </header>
+        <sheet>
+            <group>
+                <group>
+                    <field name="odoo_ids"/>
+                    <field name="name"/>
+                    <field name="ip_server"/>
+                    <field name="password_pkey" password="True"/>
+                </group>
+                <group>
+                    <field name="odooInstall"/>
+                </group>
+            </group>
+        </sheet>
+        <div class="oe_chatter">
+            <field name="message_follower_ids"/>
+            <field name="activity_ids"/>
+            <field name="message_ids"/>
+        </div>
+
+    
+    </form>
+</field>
+</record>
+</odoo>

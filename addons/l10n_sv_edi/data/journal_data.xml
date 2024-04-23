@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="fcf_journal_dte" model="account.journal">
+            <field name="name">Factura Consumidor Final Electrónica</field>
+            <field name="code">FCFE</field>
+            <field name="type">sale</field>
+            <field name="show_on_dashboard" eval="True"/>
+            <field name="refund_sequence" eval="True"/>
+            <field name="document_type_sv">01</field>
+            <field name="is_document_electronic" eval="True"/>
+            <field name="sequence" ref="sequence_consumidor_final_dte"/>
+            <field name="version">1</field>
+        </record>
+
+        <record id="nc_journal_dte" model="account.journal">
+            <field name="name">Nota de Crédito Electrónica</field>
+            <field name="code">NCE</field>
+            <field name="type">sale</field>
+            <field name="show_on_dashboard" eval="True"/>
+            <field name="refund_sequence" eval="True"/>
+            <field name="document_type_sv">05</field>
+            <field name="is_document_electronic" eval="True"/>
+            <field name="sequence" ref="sequence_nota_credito_dte"/>
+            <field name="version">3</field>
+        </record>
+
+        <record id="nd_journal_dte" model="account.journal">
+            <field name="name">Nota de Débito Electrónica</field>
+            <field name="code">NDE</field>
+            <field name="type">sale</field>
+            <field name="show_on_dashboard" eval="True"/>
+            <field name="refund_sequence" eval="True"/>
+            <field name="document_type_sv">06</field>
+            <field name="is_document_electronic" eval="True"/>
+            <field name="sequence" ref="sequence_debito_dte"/>
+            <field name="version">3</field>
+        </record>
+
+        <record id="fr_journal_dte" model="account.journal">
+            <field name="name">Factura de Remisión Electrónica</field>
+            <field name="code">FRE</field>
+            <field name="type">sale</field>
+            <field name="show_on_dashboard" eval="True"/>
+            <field name="refund_sequence" eval="True"/>
+            <field name="document_type_sv">04</field>
+            <field name="is_document_electronic" eval="True"/>
+            <field name="sequence" ref="sequence_remision_dte"/>
+            <field name="version">3</field>
+        </record>
+
+        <record id="fex_journal_dte" model="account.journal">
+            <field name="name">Factura de Sujeto Excluido Electrónica</field>
+            <field name="code">FSEE</field>
+            <field name="type">purchase</field>
+            <field name="show_on_dashboard" eval="True"/>
+            <field name="refund_sequence" eval="True"/>
+            <field name="document_type_sv">14</field>
+            <field name="is_document_electronic" eval="True"/>
+            <field name="sequence" ref="sequence_sujeto_ex_dte"/>
+            <field name="version">1</field>
+        </record>
+
+        <record id="dcl_journal_dte" model="account.journal">
+            <field name="name">Documento Contable de Liquidación Electrónica</field>
+            <field name="code">DCLE</field>
+            <field name="type">sale</field>
+            <field name="show_on_dashboard" eval="True"/>
+            <field name="refund_sequence" eval="True"/>
+            <field name="document_type_sv">09</field>
+            <field name="sequence" ref="sequence_doc_contable_dte"/>
+            <field name="is_document_electronic" eval="True"/>
+            <field name="version">1</field>
+        </record>
+
+        <record id="cr_journal_dte" model="account.journal">
+            <field name="name">Comprobante de Retención Electrónica</field>
+            <field name="code">CRE</field>
+            <field name="type">sale</field>
+            <field name="show_on_dashboard" eval="True"/>
+            <field name="refund_sequence" eval="True"/>
+            <field name="document_type_sv">07</field>
+            <field name="sequence" ref="sequence_comprobante_ret_dte"/>
+            <field name="is_document_electronic" eval="True"/>
+            <field name="version">1</field>
+
+        </record>
+
+        <record id="cl_journal_dte" model="account.journal">
+            <field name="name">Comprobante de Liquidación Electrónica</field>
+            <field name="code">CLE</field>
+            <field name="type">sale</field>
+            <field name="show_on_dashboard" eval="True"/>
+            <field name="refund_sequence" eval="True"/>
+            <field name="document_type_sv">08</field>
+            <field name="sequence" ref="sequence_comprobante_liqui_dte"/>
+            <field name="is_document_electronic" eval="True"/>
+            <field name="version">1</field>
+        </record>
+
+        <record id="cd_journal_dte" model="account.journal">
+            <field name="name">Comprobante de Donación Electrónica</field>
+            <field name="code">CDE</field>
+            <field name="type">sale</field>
+            <field name="show_on_dashboard" eval="True"/>
+            <field name="refund_sequence" eval="True"/>
+            <field name="document_type_sv">15</field>
+            <field name="sequence" ref="sequence_comprobante_dona_dte"/>
+            <field name="is_document_electronic" eval="True"/>
+            <field name="version">1</field>
+        </record>
+
+        <record id="ccf_journal_dte" model="account.journal">
+            <field name="name">Comprobante Crédito Fiscal Electrónica</field>
+            <field name="code">CCFE</field>
+            <field name="type">sale</field>
+            <field name="show_on_dashboard" eval="True"/>
+            <field name="refund_sequence" eval="True"/>
+            <field name="document_type_sv">03</field>
+            <field name="sequence" ref="sequence_credito_fiscal_dte"/>
+            <field name="is_document_electronic" eval="True"/>
+            <field name="version">3</field>
+        </record>
+
+        <record id="fex_exportacion_journal_dte" model="account.journal">
+            <field name="name">Factura de Exportación Electrónica</field>
+            <field name="code">FEEX</field>
+            <field name="type">sale</field>
+            <field name="show_on_dashboard" eval="True"/>
+            <field name="refund_sequence" eval="True"/>
+            <field name="document_type_sv">11</field>
+            <field name="sequence" ref="sequence_exportacion_dte"/>
+            <field name="is_document_electronic" eval="True"/>
+            <field name="version">1</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,84 @@
+<odoo>
+    <data>
+<record id="plan_view_form" model="ir.ui.view">
+            <field name="name">Planes de Pago</field>
+            <field name="model">plan.saas</field>
+            <field name="arch" type="xml">
+                <form string="Planes de pago">
+                    <sheet>
+                        <group >
+                           <group>
+                   
+                                <field name="name"/>
+                            
+                           </group>
+                            <group >
+                                 <field name="precio" widget="monetary" />                                   
+
+                                <!-- field name="modulos" / -->
+
+                        
+
+                            </group>
+
+                            <group>
+                               <field name="start_date"/>
+                               <field name="end_date"/>
+                               <field name="duration"/>
+                            </group>                                                   
+                        </group>
+                     
+                        <notebook>
+                            <page string="Modulos">
+                              <field name="modulos" widget="one2many">
+                                <tree string="Modulos" editable="bottom">                           
+                                  <field name="name" />                               
+                                </tree>
+                              </field>
+                            </page>
+                          </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+
+
+  <record id="planes_view_list" model="ir.ui.view">
+            <field name="name">planes.view.tree</field>
+            <field name="model">plan.saas</field>
+            <field name="arch" type="xml">
+                <tree string="Planes List">
+                    <field name="name"/>
+                    <field name="descripcion"/>
+                    <field name="total" string="Total" sum="Total" decoration-bf="1" optional="show" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}"/>
+                 </tree>
+               
+            </field>
+</record>
+
+  <record id="pla_view_calendar" model="ir.ui.view">
+            <field name="name">plan.saas</field>
+            <field name="model">plan.saas</field>
+            <field name="arch" type="xml">
+                <calendar string="Duracion de plan" 
+                date_start="start_date" 
+                color="name" 
+                date_stop="end_date" 
+                mode="month">
+                    <field name="name"/>
+                    <field name="precio"/>
+
+                </calendar>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

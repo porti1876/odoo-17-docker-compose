@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="add_ir_keys" model="ir.ui.view">
+        <field name="name">Añadir public keys</field>
+        <field name="model">add.keyget</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="public_key"/>
+                        </group>
+                    </sheet>
+                <footer>
+                 <button name="add_keys" type="object" string="Guardar" class="oe_highlight"/>
+                    <button special="cancel" string="Cancelar"/>
+                </footer>
+                </form>
+            </field>
+        </record> 
+</odoo>

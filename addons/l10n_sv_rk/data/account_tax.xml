@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Compras e IVA por Compras -->
+
+        <record id="tax_iva_sale_13" model="account.tax">
+            <field name="name">IVA 13% Compras</field>
+            <field name="description">IVA 13% Compras</field>
+            <field name="amount">13</field>
+            <field name="amount_type">percent</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="price_include" eval="False"/>
+            <field name="tax_group_id" ref="tax_group_iva_13"/>
+        </record>
+
+
+        <!-- Ventas e IVA por pagar -->
+
+        <record id="tax_iva_purchase_13" model="account.tax">
+            <field name="name">IVA 13% Ventas</field>
+            <field name="description">IVA 13% Ventas</field>
+            <field name="amount">13</field>
+            <field name="amount_type">percent</field>
+            <field name="type_tax_use">sale</field>
+            <field name="price_include" eval="False"/>
+            <field name="tax_group_id" ref="tax_group_iva_13"/>
+        </record>
+
+
+        <!-- Exportaciones -->
+
+        <record id="tax_export_0" model="account.tax">
+            <field name="name">Exportaciones 0%</field>
+            <field name="description">Exportaciones 0%</field>
+            <field name="amount">0</field>
+            <field name="amount_type">percent</field>
+            <field name="type_tax_use">sale</field>
+            <field name="price_include" eval="False"/>
+            <field name="tax_group_id" ref="tax_group_iva_export"/>
+        </record>
+
+
+        <!-- Importaciones e IVA por Compras -->
+
+        <record id="tax_import_0" model="account.tax">
+            <field name="name">Importaciones 0%</field>
+            <field name="description">Importaciones 0%</field>
+            <field name="amount">0</field>
+            <field name="amount_type">percent</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="price_include" eval="False"/>
+            <field name="tax_group_id" ref="tax_group_iva_import_13"/>
+        </record>
+
+
+        <!-- Percepción 1% compras -->
+
+        <record id="tax_percepcion_1" model="account.tax">
+            <field name="name">Percepción 1%</field>
+            <field name="description">Percepción sobre compras 1%</field>
+            <field name="amount">1</field>
+            <field name="amount_type">percent</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="price_include" eval="False"/>
+            <field name="tax_group_id" ref="tax_group_percepcion_1"/>
+        </record>
+
+
+        <!-- Retención 1% ventas -->
+
+        <record id="tax_retencion_1" model="account.tax">
+            <field name="name">Retención 1%</field>
+            <field name="description">Retención sobre ventas 1%</field>
+            <field name="amount">-1</field>
+            <field name="amount_type">percent</field>
+            <field name="type_tax_use">sale</field>
+            <field name="price_include" eval="True"/>
+            <field name="tax_group_id" ref="tax_group_retencion_1"/>
+        </record>
+
+        <!-- CESC 5% compras -->
+
+        <record id="tax_cesc_5" model="account.tax">
+            <field name="name">CESC 5%</field>
+            <field name="description">CESC 5%</field>
+            <field name="amount">5</field>
+            <field name="amount_type">percent</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="price_include" eval="False"/>
+            <field name="tax_group_id" ref="tax_group_cesc_5"/>
+        </record>
+
+
+        <!-- Renta 10% -->
+
+        <record id="tax_rent_10" model="account.tax">
+            <field name="name">Renta 10%</field>
+            <field name="description">Renta 10%</field>
+            <field name="amount">-10</field>
+            <field name="amount_type">percent</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="price_include" eval="False"/>
+            <field name="tax_group_id" ref="tax_group_renta_10"/>
+        </record>
+
+        <!-- Gasolina -->
+
+        <record id="tax_fovial" model="account.tax">
+
+            <field name="name">Fovial</field>
+            <field name="description">Fovial</field>
+            <field name="amount">0.20</field>
+            <field name="amount_type">fixed</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="price_include" eval="False"/>
+            <field name="tax_group_id" ref="tax_group_fovial"/>
+        </record>
+
+        <record id="tax_cotrans" model="account.tax">
+
+            <field name="name">Cotrans</field>
+            <field name="description">Cotrans</field>
+            <field name="amount">0.10</field>
+            <field name="amount_type">fixed</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="price_include" eval="False"/>
+            <field name="tax_group_id" ref="tax_group_cotrans"/>
+        </record>
+
+
+          <record id="tax_cotrans" model="account.tax">
+
+            <field name="name">Cotrans</field>
+            <field name="description">Cotrans</field>
+            <field name="amount">0.10</field>
+            <field name="amount_type">fixed</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="price_include" eval="False"/>
+            <field name="tax_group_id" ref="tax_group_cotrans"/>
+        </record>
+
+
+    </data>
+</odoo>

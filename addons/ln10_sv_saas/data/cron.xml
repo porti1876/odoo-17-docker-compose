@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    
+
+         <record id="ir_cron_delete" model="ir.cron">
+            <field name="name">Eliminar registro</field>
+            <field eval="True" name="active" />
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">2</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="model_id" ref="ln10_sv_saas.model_ln10_sv_saas_droplets"/>
+            <field eval="False" name="doall"/>
+            <field name="state">code</field>
+            <field name="code">model.delete_records()</field>       
+        </record>    
+  
+        <record id="ir_cron_update" model="ir.cron">
+            <field name="name">Obtener datos digital ocean</field>
+            <field eval="True" name="active" />
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="model_id" ref="ln10_sv_saas.model_ln10_sv_saas_droplets"/>
+            <field eval="False" name="doall"/>
+            <field name="state">code</field>
+            <field name="code">model.update_fields()</field>       
+        </record>  
+
+        <record id="ir_cron_update_proje" model="ir.cron">
+            <field name="name">Obtener projects</field>
+            <field eval="True" name="active" />
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="model_id" ref="ln10_sv_saas.model_ln10_sv_saas_droplets"/>
+            <field eval="False" name="doall"/>
+            <field name="state">code</field>
+            <field name="code">model.projects_update()</field>  
+        </record>  
+
+
+        <record id="ir_from_conf" model="ir.cron">
+            <field name="name">Extraer .conf</field>
+            <field eval="True" name="active" />
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="numbercall">-1</field>
+            <field name="model_id" ref="ln10_sv_saas.model_files_instancias"/>
+            <field eval="False" name="doall"/>
+            <field name="state">code</field>
+            <field name="code">model.update_fuction()</field>       
+        </record>    
+        <record id="ir_cron_extr" model="ir.cron">
+            <field name="name">Archivos systemctl</field>
+            <field eval="True" name="active" />
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="numbercall">-1</field>
+            <field name="model_id" ref="ln10_sv_saas.model_files_systemctl"/>
+            <field eval="False" name="doall"/>
+            <field name="state">code</field>
+            <field name="code">model.file_xtrta()</field>       
+        </record>  
+    
+       
+</odoo>

@@ -1,0 +1,364 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record model="ir.ui.view" id="view_res_instancias_form">
+        <field name="name">Configuracion  </field>
+        <field name="model">ln10_sv_saas.instancias</field>
+        <field name="arch" type="xml">
+  
+            <form string="Crear Instancia"  >
+            <header> 
+              <!--button name="reset_to_draft" type="object" string="Editar"  class="oe_edit_only oe_inline oe_highlight" attrs="{'invisible': ['|',('state', '=', 'draft'),('state', '!=', 'aplicar')]}"/-->
+              <!--button name="action_confirm" type="object" string="Confirmar"  class="oe_edit_only oe_inline oe_highlight"  attrs="{'invisible': ['|',('state', '=', 'aplicar'),('state', '=', 'posted')]}"/-->
+              <!--button name="action_aplicar" type="object" string="Aplicar"  class="oe_edit_only oe_inline oe_highlight" attrs="{'invisible': [('state', '!=', 'posted')]}"/>                 
+              <button name="action_edit" type="object" string="Borrador" class="oe_edit_only oe_inline oe_highlight" />
+              <field name="state" widget="statusbar" statusbar_visible="draft,posted,aplicar"/>
+              <button name="install_odoo" type="object" string="Instalar Odoo" class="oe_edit_only oe_inline oe_highlight" attrs="{'invisible': ['|', ('state', '!=', 'draft'), ('state', '!=', 'posted'), ('state', '!=', 'aplicar')]}"/-->
+               <button string="conectar" name="conectar_ssh_id" type="object" class="oe_highlight"/>
+                <button string="Guardar Cambios" name="edit_remote_file" type="object" class="oe_highlight" icon="fa-save"/>
+            </header>
+               
+                <sheet style="flex-direction: row;">
+
+                    <sheet style="border: 1px outset rgba(3,3,5,0.68);
+                    border-radius: 40px 0px 0px 40px;">
+                        <group string="CONFIGURACION SSH">
+
+                            <group>
+                               <field name="ip_server"/> 
+                               <field name="password_pkey" password="True"/>
+                            </group>
+                           <group>
+                            <field name="hostName"/>        
+                            <field name="port_host"/>
+                            <field name="userNameSsh"/>
+                            <field name="shh_ids" attrs="{'invisible': [('shh_ids','!=',False)]}"/>
+                          
+                           </group>
+                        </group>
+                    </sheet>
+                    
+                    <sheet style="border: 1px outset rgba(3,3,5,0.68);
+                    border-radius: 40px 0px 0px 40px;" >
+
+                        <group>
+        
+                            <group string="Archivo de configuracion" >
+                                <field name="nameConf"/>
+                                <field name="master_password"
+                                    password="False"
+                                    attrs="{'invisible': [('is_password', '=', False)]}"/>
+                                <field name="master_password"
+                                    password="True"
+                                    attrs="{'invisible': [('is_password', '=', True)]}"/>
+                                <field name="htt_port"/>
+                                <field name="db_host"/>
+                                <field name="db_port"/>
+                                <field name="db_user"/>
+                                <field name="db_password" password="True" />
+                                <field name="proxy_mode"/>
+                                <field name="logfile"/>
+                                <field name="longpolling_port"/>
+                                <field name="gevent_port"/>
+                                <field name="limit_time_real"/>
+                                <field name="limit_time_cpu"/>
+                                <field name="limit_time_real_cron"/>
+                                <field name="xmlrpc_port"/>
+                                <field name="addons_path"/>
+
+                                <!--field name="name" /-->
+                                <!--field name="cliente" attrs="{'readonly': [('is_edit', '=', False)]}"/-->
+                                 <!--field name="cliente"/-->
+                                <!--field name="planes_ids"/-->
+                               
+                            </group>
+
+                            <group>
+                                <field name="is_password" widget="boolean_toggle"/>
+                                
+                            </group>
+                          
+                            <!--field name="posted_before" invisible="1"/-->
+                           
+                            <!--field name="is_edit" invisible="1"/-->
+                            <!--field name="is_edit_apli" invisible="1"/-->
+                            
+                              
+                                <!--field name="service" /-->
+                                <!--field name="servidor"  /-->
+                                <!--field name="aliens" /-->
+                                <!--field name="ssh_keys" /-->
+                           
+                           
+                            <!--field name="user_bd" /-->
+                          
+                              <!--group attrs="{'invisible':[('posted_before','=',False)]}" style=" height: auto; width: auto;font-size:auto;"-->
+                              
+                              <!--field name="passw_bd" /-->
+                              
+                             
+                             
+                        
+                           
+                              <!--page name="archivo_conf" string="Archivo de configuracion" >
+                                 <field name="archivo_config" attrs="{'readonly': [('is_edit_apli', '=', False)]}"/>
+                                <field name="archivo_config"/>
+                              </page-->
+                            
+                        </group>
+
+                    </sheet>
+
+                   
+                </sheet>
+               
+            <div class="oe_chatter">
+                <field name="message_follower_ids"/>
+                <field name="activity_ids"/>
+                <field name="message_ids"/>
+            </div>
+            </form>
+          
+        </field>
+    </record>
+
+
+    <record id="res_instancias_list" model="ir.ui.view">
+        <field name="name">Instancias </field>
+        <field name="model">ln10_sv_saas.instancias</field>
+        <field name="arch" type="xml">
+            <tree string="Instancias" >
+                <field name="nameConf"/>
+                <field name="master_password" password="True" />
+                <field name="htt_port"/>
+                <field name="db_host"/>
+                <field name="db_port"/>
+                <field name="db_user"/>
+                <field name="db_password" password="True"/>
+                <field name="proxy_mode"/>
+                <field name="logfile"/>
+                <field name="xmlrpc_port"/>
+                <field name="addons_path"/>
+                                    
+            </tree>
+
+        </field>
+    </record>
+
+
+    <record id="clave_privada_form" model="ir.ui.view">
+        <field name="name">clave privada</field>
+        <field name="model">add.pkey.rskay</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                    <button name="create_dt" class="oe_highlight" type="object" string="Create" attrs="{'invisible': [('id', '!=', False)]}"/>
+                </header>
+                <sheet>
+                    <group>
+                       <group>
+                        <group>
+                            <field name="name" attrs="{'readonly': [('id', '!=', False)]}"/>
+                        </group>
+                        <group>
+                            <field name="password_pkey" password="True"  attrs="{'readonly': [('id', '!=', False)]}"/>
+                          <field name="username_ssh"  attrs="{'readonly': [('id', '!=', False)]}"/>
+                        </group>
+                        
+                        
+                       </group> 
+                      
+                    </group>
+                   <notebook>
+                    <page>
+                        <group>
+                            <field name="pkey_private"  attrs="{'invisible': [('id', '!=', False)], 'readonly': [('id', '!=', False)]}"/>
+                           </group>
+                    </page>
+                   </notebook>
+                   
+                    
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="add_clave_tree" model="ir.ui.view">
+        <field name="name">add_clave.tree</field>
+        <field name="model">add.pkey.rskay</field>
+        <field name="arch" type="xml">
+            <tree string="Clave privada ssh">
+                <field name="name"/>
+                
+                <field name="password_pkey" password="True"/>
+            </tree>
+        </field>
+    </record>
+
+
+   
+
+<record id="file_ssh_id_form" model="ir.ui.view">
+    <field name="name">Configuracion extraer instancias</field>
+    <field name="model">files.instancias</field>
+    <field name="arch" type="xml">
+        <form string="">
+            <header>
+                <button string="Conectar ssh" name="conectar_ssh" type="object" class="oe_highlight"/>
+                <button string="update" name="update_from_remote_confs" type="object" class="oe_highlight"/>
+            </header>
+            <sheet>
+                <group  string="Configuracion para extraer instancias">
+                    <group>
+                        <field name="name"/>
+                        <field name="ip_server"/>
+                    </group>
+                    
+                    <group>
+                        <field name="host"/>
+                        <field name="username"/>
+                        <field name="port"/>
+                        <field name="shh_ids" attrs="{'invisible': [('id','!=',False)]}" />
+                        <field name="password_pkey" password="True"/>
+                    </group>
+
+                    
+                </group>
+                
+            </sheet>
+            
+            <div class="oe_chatter">
+                <field name="message_follower_ids"/>
+                <field name="activity_ids"/>
+                <field name="message_ids"/>
+            </div>
+        </form>
+    </field>
+</record>
+
+<record id="file_tree" model="ir.ui.view">
+<field name="name">Configuracion extraer instancias</field>
+<field name="model">files.instancias</field>
+<field name="arch" type="xml">
+    <tree>
+        <field name="name"/>
+        <field name="ip_server"/>
+        <field name="username"/>
+        <field name="port"/>
+    </tree>
+</field>
+</record>
+
+<record id="systemct_form" model="ir.ui.view">
+<field name="name">Extraer archivo system</field>
+<field name="model">files.systemctl</field>
+<field name="arch" type="xml">
+    <form string="">
+        <header>
+            <button string="Extrer archivos" name="update_file_systemctl" type="object" class="oe_highlight"/>
+        </header>
+        <sheet>
+            <group>
+                <group string="Configuracion ssh">
+                    <field name="servidores"/>
+                    <field name="shh_ids"/>
+                    <field name="port"/>
+                    <field name="username"/>
+                    
+                </group>
+                <group>
+                    <field name="name"/>
+                    <field name="ip_server"/>
+                    <field name="pkey_private" attrs="{'invisible': [('pkey_private','!=', False)]}"/>
+                    <field name="password_pkey"  password="True" />
+                </group>                   
+            </group>         
+        </sheet>
+        <div class="oe_chatter">
+            <field name="message_follower_ids"/>
+            <field name="activity_ids"/>
+            <field name="message_ids"/>
+        </div>
+    </form>
+</field>
+</record>
+
+
+<record id="syste_tree" model="ir.ui.view">
+<field name="name">syste.tree</field>
+<field name="model">files.systemctl</field>
+<field name="arch" type="xml">
+    <tree string="">
+        <field name="name"/>
+        <field name="ip_server"/>
+    </tree>
+</field>
+</record>
+
+<record id="lista_system_form" model="ir.ui.view">
+<field name="name">lista_system.form</field>
+<field name="model">listas.systemctl</field>
+<field name="arch" type="xml">
+    <form string="">
+        <header>
+            <button string="Guardar" name="updte_file" type="object" class="oe_highlight" icon="fa-save"/>
+            <button string="Activar" name="activar" type="object" class="oe_highlight"/>
+        </header>
+        <sheet>
+
+       
+        <sheet>
+            <group string="ssh">
+                <group>
+                <group>
+                    <field name="username"/>
+                   
+                    <field name="port"/>
+                    <field name="ssh_ids"/>                    
+                </group>
+                <group>
+                    <field name="ip_server" attrs="{'readonly': [('ip_server','!=', False)]}" />
+                    <field name="password_pkey" password="True"/>
+                </group>
+                </group>
+            </group>
+        </sheet>
+        <sheet>
+            <group>
+                <group>
+                    <field name="name" attrs="{'readonly': [('ip_server','!=', False)]}"/>
+                    <field name="file_systemctl"/>
+                  
+                </group>
+            </group>
+        </sheet>
+
+    </sheet>
+        <div class="oe_chatter">
+            <field name="message_follower_ids"/>
+            <field name="activity_ids"/>
+            <field name="message_ids"/>
+        </div>
+    </form>
+</field>
+</record>
+
+<record id="lista_file_syst_tree" model="ir.ui.view">
+<field name="name">lista_file_syst.tree</field>
+<field name="model">listas.systemctl</field>
+<field name="arch" type="xml">
+    <tree string="">
+        <field name="name"/>
+        <field name="ip_server"/>
+        
+       <button string="start" name="startSystemctl" type="object" class="oe_highlight" icon="fa-play"/>
+       <button string="stop" name="stopSystemctl" type="object" class="oe_highlight" icon="fa-stop"/>
+       <button string="restart" name="restartSystemctl" type="object" class="oe_highlight" icon="fa-refresh"/>
+    </tree>
+</field>
+</record>
+</odoo>

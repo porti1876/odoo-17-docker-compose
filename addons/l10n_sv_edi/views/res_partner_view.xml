@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- INHERIT view_partner_form -->
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='vat']" position="attributes">
+                <attribute name="string">NRC</attribute>
+            </xpath>
+
+            <xpath expr="//notebook" position="inside">
+                <page name="info_dte" string="DTE">
+
+                    <group cols="4">
+                        <group string="Preferencias de factura">
+                            <field name="recinto_fiscal_id"/>
+                            <field name="codigo_pais"/>
+                            <field name="domicilio_fiscal"/>
+
+                        </group>
+
+                        <group string="Detalles extranjero">
+                            <field name="residencia_fiscal"/>
+                            <field name="registro_tributario"/>
+                            <field name="tipo_persona"/>
+
+                        </group>
+                    </group>
+
+                </page>
+            </xpath>
+        </field>
+
+    </record>
+
+</odoo>

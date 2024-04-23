@@ -1,0 +1,20 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+acces_category,acces category,model_ln10_sv_saas_category,base.group_user,1,1,1,1
+acces_client,acces client,model_ln10_sv_saas_client,base.group_user,1,1,1,1
+acces_droplets,acces droplets,model_ln10_sv_saas_droplets,base.group_user,1,1,1,1
+acces_install,acces install,model_ln10_sv_saas_install,base.group_user,1,1,1,1
+acces_pkey,acces pkey,model_ln10_sv_saas_pkey,base.group_user,1,1,1,1
+acces_edit,acces edit,model_ln10_sv_saas_edit,base.group_user,1,1,1,1
+acces_instancias,acces instancias,model_ln10_sv_saas_instancias,base.group_user,1,1,1,1
+acces_add_pkey,acces add pkey,model_add_pkey_rskay,base.group_user,1,1,1,1
+acces_file_instancias,acces file instancias,model_files_instancias,base.group_user,1,1,1,1
+acces_file_systemctl,acces file systemctl,model_listas_systemctl,base.group_user,1,1,1,1
+acces_list_systemctl,acces list systemctl,model_files_systemctl,base.group_user,1,1,1,1
+acces_create_inst,acces create inst,model_craete_instancia,base.group_user,1,1,1,1
+acces_user_post,acces user post,model_creates_psql,base.group_user,1,1,1,1
+acces_sup_pwd,acces sup pwd,model_super_password,base.group_user,1,1,1,1
+acces_keys,acces pkey,model_add_keyget,base.group_user,1,1,1,1
+acces_project_id,acces project id,model_projects_add,base.group_user,1,1,1,1
+acces_dele_kp,acces dele kp,model_dele_keys,base.group_user,1,1,1,1
+acces_proj_dele,acces proj dele,model_delele_projects,base.group_user,1,1,1,1
+access_plan_saas,access plan saas,model_plan_saas,base.group_user,1,1,1,1

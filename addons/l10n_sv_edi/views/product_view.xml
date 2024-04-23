@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <record id="product_template_form_view" model="ir.ui.view">
+       <field name="name">product.template.form.inherit</field>
+       <field name="model">product.template</field>
+       <field name="priority">5</field>
+       <field name="inherit_id" ref="product.product_template_form_view"/>
+       <field name="arch" type="xml">
+           <xpath expr="//page[@name='sales']" position="after">
+               <page string="Datos DTE" name="datos_dte">
+                  <group col="4">
+                     <field name="cat_unidad_medida" />
+                     <field name="type_item_edi"/>
+                     <field name ="anho" attrs="{'invisible':[('type_item_edi','!=','1'),('type_item_edi','!=','3')]}"/>
+                     <field name ="valor_residual" attrs="{'invisible':[('type_item_edi','!=','1'),('type_item_edi','!=','3')]}"/>
+                     <field name="tributo_iva"/>
+
+                  </group>
+               </page>
+           </xpath>
+       </field>
+   </record>
+</odoo>
