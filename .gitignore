@@ -103,8 +103,3 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-/addons/bi_professional_reports_templates/
-/addons/general_ledger_sv/
-/addons/l10n_sv_edi/
-/addons/l10n_sv_rk/
-/addons/ln10_sv_saas/
