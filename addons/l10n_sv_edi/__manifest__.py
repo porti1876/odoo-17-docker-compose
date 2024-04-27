@@ -1,13 +1,14 @@
 {
     'name': 'Modulo de factura electrónica El Salvador',
     'version': '16.01',
-    'description': ''' Factura Electronica módulo de ventas, compras y contabilidad para El Salvador (DGII & Ministerio de Hacienda)
+    'description': ''' 
+    Factura Electronica módulo de ventas, compras y contabilidad para El Salvador (DGII & Ministerio de Hacienda)
     ''',
     'category': 'Accounting', 'Sale'
-                              'author': 'Rocketters',
-    'website': 'https://rocketters.com/',
+    'author': 'Kevin Portillo',
+    'website': 'https://portipy.vercel.app/',
     'depends': [
-        'sale', 'account', 'l10n_sv_rk', 'base','contacts'
+        'sale', 'account', 'l10n_sv_rk', 'base', 'contacts'
     ],
     'data': [
 
@@ -16,7 +17,7 @@
         # Views de wizards
         'wizard/import_account_payment_view.xml',
         'wizard/reason_cancelation_sat_view.xml',
-        
+
         # Información Data De Catalogos
 
         'data/catalogo.recinto.fiscal.csv',
@@ -35,7 +36,6 @@
         'data/mail_template_data_dte.xml',
         'data/cron.xml',
 
-
         # Views
         'views/res_country_edi_view.xml',
         'views/account_incoterms_view.xml',
@@ -48,8 +48,6 @@
         'views/tribute_edi_view.xml',
         'views/account_payment_term_view.xml',
         'views/account_journal_view.xml',
-
-
 
     ],
     'images': ['static/description/rocket_img'],

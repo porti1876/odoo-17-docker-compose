@@ -9,8 +9,8 @@
     Modulo para automatizar contabilidad de El Salvador .
     """,
 
-    'author': "Rocketers",
-    'website': "https://rocketters.com/",
+    'author': "Kevin Portillo",
+    'website': "https://portipy.vercel.app/",
 
     'category': 'Accounting/Localizations/Account Charts',
     'version': '1',

@@ -9,8 +9,8 @@
         Creacion de droplets con sus respectivas instancias
     """,
 
-    'author': "Rocketters",
-    'website': "https://rocketters.com/",
+    'author': "Kevin Portillo",
+    'website': "https://portipy.vercel.app/",
 
    
     'category': 'Server',

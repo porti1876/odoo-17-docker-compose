@@ -7,11 +7,11 @@
     'category': 'Tools',
     'summary': 'Módulo para generar formato de las facturas electronica en formato pdf',
     'description': """
-		Customize report, customize pdf report, customize template report, Customize Sales Order report,Customize Purchase Order report, Customize invoice report, Customize delivery Order report, Accounting Reports, Easy reports, Flexible report,Fancy Report template
+    Permite configurar el formato de reporte de PDF de factura electronica de acuerdo a necesidades de cliente
     """,
     'license': 'OPL-1',
-    'author': 'Rocketters',
-    'website': 'https://www.browseinfo.in',
+    'author': 'Kevin Portillo',
+    'website': 'https://portipy.vercel.app/',
     'depends': ['base', 'account', 'sale', 'stock', 'sale_management', 'l10n_sv_rk'],
     'data': [
         "res_company.xml",
