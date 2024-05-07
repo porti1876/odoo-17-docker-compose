@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="general_ledger_sv_form_view" model="ir.ui.view">
+            <field name="name">general.ledger.sv.form</field>
+            <field name="model">general.ledger.sv</field>
+            <field name="arch" type="xml">
+                <form string="Libro Mayor">
+                    <header>
+                        <button name="confirm_ledger" string="Confirmar" type="object"
+                                class="oe_highlight"
+                                attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                        <button name="print_report" string="Generar Libro Mayor" type="object"
+                                class="oe_highlight"
+                                attrs="{'invisible': [('state', '=', 'draft')]}"/>
+                        <button name="approve_general_ledger" string="Validar Libro Mayor" type="object"
+                                class="oe_highlight"
+                                attrs="{'invisible': [('state', '!=', 'confirmed')]}"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" string="Nombre de libro mayor"/>
+                            <h1>
+                                <field name="name" placeholder="Nombre de libro mayor"
+                                       attrs="{'readonly': [('state', '=', 'done')]}"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="date_from" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                                <field name="date_to" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                                <field name="company_id" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                                <field name="currency_id" readonly="1"/>
+                                <!--                                <field name="journal_ids" options="{'no_create': True}" widget="many2many_tags"-->
+                                <!--                                       attrs="{'readonly': [('state', '=', 'done')]}"/>-->
+                            </group>
+                            <group>
+                                <field name="is_journals_selection" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                                <field name="journal_ids"
+                                       options="{'no_create': True}"
+                                       widget="many2many_tags"
+                                       attrs="{
+                                                'invisible': [('is_journals_selection', '=', False)],
+                                                 'readonly': [('state', '=', 'done')]
+                                               }"/>
+
+                                <!--                                <field name="account_group_ids" options="{'no_create': True}" widget="many2many_tags"-->
+                                <!--                                       attrs="{'invisible': [('is_account_group_ids', '=', False)]}"/>-->
+                                <!--                                <field name="account_ids" options="{'no_create': True}" widget="many2many_tags"/>-->
+                                <!--                                <field name="show_initial_balance" widget="toggle_button"/>-->
+                                <!--                                <field name="show_final_balance" widget="toggle_button"/>-->
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page string="Líneas de partida">
+                                <field name="move_line_ids" attrs="{'readonly': True}">
+                                    <tree>
+                                        <field name="account_group_id" optional="show"/>
+                                        <field name="account_id"/>
+                                        <field name="journal_id" optional="show"/>
+                                        <field name="account_type" optional="show"/>
+                                        <field name="move_id"/>
+                                        <field name="ref" optional="show"/>
+                                        <field name="date"/>
+                                        <field name="name"/>
+                                        <field name="debit" sum="Debito"/>
+                                        <field name="credit" sum="Credito"/>
+                                        <field name="balance" sum="Balance"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Saldos Iniciales">
+                                <field name="account_balances" readonly="True">
+                                    <tree>
+                                        <field name="account_id"/>
+                                        <field name="initial_balance"/>
+                                        <field name="ledger_id"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="general_ledger_sv_tree_view" model="ir.ui.view">
+            <field name="name">general.ledger.sv.tree</field>
+            <field name="model">general.ledger.sv</field>
+            <field name="arch" type="xml">
+                <tree string="Libro Mayor">
+                    <field name="name"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="company_id"/>
+                    <field name="state" widget="badge" decoration-muted="state == 'draft'"
+                           decoration-info="state == 'confirmed'"
+                           decoration-success="state == 'done'"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="general_ledger_sv_search_view" model="ir.ui.view">
+            <field name="name">general.ledger.sv.search</field>
+            <field name="model">general.ledger.sv</field>
+            <field name="arch" type="xml">
+                <search string="Libro Mayor">
+                    <group expand="1" string="Group By">
+                        <filter string="Fecha" name="date_from" domain="[]"
+                                context="{'group_by':'date_from'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="general_ledger_sv_act_window" model="ir.actions.act_window">
+            <field name="name">Libro Mayor SV</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">general.ledger.sv</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    No hay libros mayores por mostrar, creemos uno nuevo
+                </p>
+            </field>
+        </record>
+
+        <menuitem
+                parent="account.menu_finance_reports"
+                id="menu_general_ledger_sv"
+                name="Libro Mayor SV"
+        />
+        <menuitem
+                parent="menu_general_ledger_sv"
+                action="general_ledger_sv_act_window"
+                id="general_ledger_sv_menuitem"
+                sequence="10"
+        />
+    </data>
+</odoo>

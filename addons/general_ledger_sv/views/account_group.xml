@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="account_group_glsv_form_inherit" model="ir.ui.view">
+            <field name="name">account.group.glsv.form</field>
+            <field name="model">account.group</field>
+            <field name="inherit_id" ref="account.view_account_group_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="is_general_ledger_account_group"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

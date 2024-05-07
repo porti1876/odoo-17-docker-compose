@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+general_ledger_sv_access_general_ledger_sv,access_general_ledger_sv,model_general_ledger_sv,base.group_user,1,1,1,1
+general_ledger_sv_access_general_ledger_initial_balance,access_general_ledger_initial_balance,model_general_ledger_initial_balance,base.group_user,1,1,1,1

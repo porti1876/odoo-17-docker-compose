@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="account_account_glsv_form_inherit" model="ir.ui.view">
+            <field name="name">account.account.glsv.form</field>
+            <field name="model">account.account</field>
+            <field name="inherit_id" ref="account.view_account_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='account_type']" position="after">
+                    <field name="is_result_account"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

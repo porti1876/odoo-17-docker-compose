@@ -1,0 +1,200 @@
+<odoo>
+    <data>
+
+        <record id="paperformat_general_ledger_sv" model="report.paperformat">
+            <field name="name">Libro Mayor - El Salvador</field>
+            <field name="default">False</field>
+            <field name="format">Legal</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">40</field>
+            <field name="margin_bottom">20</field>
+            <field name="margin_left">10</field>
+            <field name="margin_right">10</field>
+            <field name="header_line">False</field>
+            <field name="header_spacing">20</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="action_report_general_ledger_sv_ex_upt" model="ir.actions.report">
+            <field name="name">Libro mayor</field>
+            <field name="model">general.ledger.sv</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">general_ledger_sv.report_general_ledger</field>
+            <field name="report_file">general_ledger_sv.report_general_ledger</field>
+            <field name="print_report_name">object.name or ''</field>
+            <field name="paperformat_id" ref="general_ledger_sv.paperformat_general_ledger_sv"/>
+        </record>
+
+        <template id="report_general_ledger">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.internal_layout">
+                        <div class="page">
+                            <div class="oe_structure"/>
+                            <div style="text-align: center;">
+                                <h3 style="margin: 0;">LIBRO MAYOR</h3>
+                                <p style="margin: 0;">Del <t t-esc="o.date_from"
+                                                             t-options='{"widget": "date","format": "dd-MM-yyyy"}'/>
+                                    al <t t-esc="o.date_to" t-options='{"widget": "date","format": "dd-MM-yyyy"}'/></p>
+                                <p style="margin: 0;">VALORES EXPRESADOS EN DÓLARES DE LOS ESTADOS UNIDOS DE AMÉRICA</p>
+                            </div>
+                            <!-- Encabezado de la tabla -->
+                            <table class="table table-condensed" style="font: 12px arial">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 15%">Cuenta/Partida</th>
+                                        <th style="width: 10%">Fecha</th>
+                                        <th style="width: 40%">Concepto</th>
+                                        <th style="width: 8.75%">Saldo Inicial</th>
+                                        <th style="width: 8.75%">Debe</th>
+                                        <th style="width: 8.75%">Haber</th>
+                                        <th style="width: 8.75%">Saldo Final</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <t t-set="current_account" t-value="False"/>
+                                    <t t-set="totals"
+                                       t-value="{'initial_balance': 0, 'debit': 0, 'credit': 0, 'balance': 0}"/>
+                                    <t t-foreach="o.account_balances" t-as="account_balance">
+                                        <!-- Mostrar la información de la cuenta y su saldo inicial -->
+                                        <tr>
+                                            <td colspan="7" style="border-top: 2px solid #000;"><strong><t
+                                                    t-esc="account_balance.account_id.code"/> <t
+                                                    t-esc="account_balance.account_id.name"/></strong></td>
+                                        </tr>
+                                        <!-- Fila para mostrar solo el saldo inicial -->
+                                        <tr>
+                                            <td>Saldo Inicial</td>
+                                            <td></td> <!-- Fecha vacía en la fila del saldo inicial -->
+                                            <td></td>
+                                            <td style="text-align: right"><t t-esc="account_balance.initial_balance"
+                                                                             t-options="{'widget': 'float', 'precision': 2}"/></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <t t-set="totals" t-value="{
+                                            'initial_balance': account_balance.initial_balance,
+                                            'debit': 0,
+                                            'credit': 0,
+                                            'balance': account_balance.initial_balance,
+                                        }"/>
+                                        <!-- Iterar a través de los movimientos para la cuenta actual -->
+                                        <t t-foreach="o.move_line_ids.filtered(lambda line: line.account_id == account_balance.account_id)"
+                                           t-as="move">
+                                            <!-- Acumular los totales para la cuenta actual -->
+                                            <t t-set="totals" t-value="{
+                                                'initial_balance': totals['initial_balance'],
+                                                'debit': totals['debit'] + move.debit,
+                                                'credit': totals['credit'] + move.credit,
+                                                'balance': totals['balance'] + move.debit - move.credit,
+                                            }"/>
+                                            <!-- Mostrar los detalles de cada movimiento -->
+                                            <tr>
+                                                <td><t t-esc="move.move_id.name"/></td>
+                                                <td style="text-align: center"><t t-esc="move.date"
+                                                                                  t-options='{"widget": "date","format": "dd-MM-yyyy"}'/></td>
+                                                <td><t t-esc="move.name"/></td>
+                                                <td></td> <!-- Saldo inicial ya mostrado, dejar en blanco -->
+                                                <td style="text-align: right"><t t-esc="move.debit"
+                                                                                 t-options="{'widget': 'float', 'precision': 2}"/></td>
+                                                <td style="text-align: right"><t t-esc="move.credit"
+                                                                                 t-options="{'widget': 'float', 'precision': 2}"/></td>
+                                                <td></td> <!-- Saldo final que es lo mismo a balance dejar en blanco -->
+
+                                                <!--                                                <td><t t-esc="move.balance"-->
+                                                <!--                                                     /></td>-->
+                                            </tr>
+                                        </t>
+                                        <!-- Mostrar los totales de la cuenta -->
+                                        <tr class="account-totals" style="border-top: 2px solid #000;">
+                                            <td><strong>Totales de la cuenta:</strong></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td style="text-align: right"><strong><t t-esc="totals['initial_balance']"
+                                                                                     t-options="{'widget': 'float', 'precision': 2}"/></strong></td>
+                                            <td style="text-align: right"><strong><t t-esc="totals['debit']"
+                                                                                     t-options="{'widget': 'float', 'precision': 2}"/></strong></td>
+                                            <td style="text-align: right"><strong><t t-esc="totals['credit']"
+                                                                                     t-options="{'widget': 'float', 'precision': 2}"/></strong></td>
+                                            <td style="text-align: right"><strong><t t-esc="totals['balance']"
+                                                                                     t-options="{'widget': 'float', 'precision': 2}"/></strong></td>
+                                        </tr>
+                                        <!-- Restablecer los totales para la siguiente cuenta -->
+                                        <t t-set="totals"
+                                           t-value="{'initial_balance': 0, 'debit': 0, 'credit': 0, 'balance': 0}"/>
+                                        <!-- Salto de página entre cuentas si es necesario -->
+                                    </t>
+                                </tbody>
+
+
+                            </table>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div class="footer-sign" style="text-align: right;">
+                            <div class="sign" style="float: right;">
+                                <span>Elaborado por: _______________________________________________</span>
+                                <br/>
+                                <span>Lic. <t t-esc="request.env.user.name"/></span>
+                                <br/>
+                                <span>Contador General</span>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <!-- QWeb Template -->
+        <!--        <template id="report_general_ledger_sv_template">-->
+        <!--            <t t-call="web.html_container">-->
+        <!--                <t t-call="web.external_layout">-->
+        <!--                    <div class="page">-->
+        <!--                        <h2>General Ledger Report</h2>-->
+        <!--                        <table class="table table-condensed">-->
+        <!--                            <thead>-->
+        <!--                                <tr>-->
+        <!--                                    <th>Cuenta</th>-->
+        <!--                                    <th>Diario</th>-->
+        <!--                                    <th>Debito</th>-->
+        <!--                                    <th>Credito</th>-->
+        <!--                                    <th>Balance</th>-->
+        <!--                                    <th>Balance anterior</th>-->
+        <!--                                </tr>-->
+        <!--                            </thead>-->
+        <!--                            <tbody>-->
+        <!--                                <t t-foreach="account_moves" t-as="account_move">-->
+        <!--                                    <tr>-->
+        <!--                                        <td>-->
+        <!--                                            <t t-esc="account_move['account_id']"/>-->
+        <!--                                        </td>-->
+        <!--                                        <td>-->
+        <!--                                            <t t-esc="account_move['journal']"/>-->
+        <!--                                        </td>-->
+        <!--                                        <td class="text-right">-->
+        <!--                                            <t t-esc="account_move['debit']"/>-->
+        <!--                                        </td>-->
+        <!--                                        <td class="text-right">-->
+        <!--                                            <t t-esc="account_move['credit']"/>-->
+        <!--                                        </td>-->
+        <!--                                        <td class="text-right">-->
+        <!--                                            <t t-esc="account_move['balance']"/>-->
+        <!--                                        </td>-->
+        <!--                                        <td class="text-right">-->
+        <!--                                            <t t-esc="account_move['previous_balance']"/>-->
+        <!--                                        </td>-->
+        <!--                                    </tr>-->
+        <!--                                </t>-->
+        <!--                            </tbody>-->
+        <!--                        </table>-->
+
+        <!--                    </div>-->
+        <!--                </t>-->
+        <!--            </t>-->
+        <!--        </template>-->
+    </data>
+</odoo>
